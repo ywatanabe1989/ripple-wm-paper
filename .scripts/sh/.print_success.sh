@@ -7,10 +7,11 @@ function print_success() {
         files_found=$(ls ./${pattern} 2> /dev/null)
         if [ -n "$files_found" ]; then
             for file in $files_found; do
-                echo -e "\nCongratulations! ${file} is ready."
+                # echo -e "\nCongratulations! ${file} is ready."
+                echo -e "\n\033[1;33mCongratulations! ${file} is ready.\033[0m"                
             done
         else
-            echo -e "\nUnfortunately, no files matching ${pattern} were created."
+            echo -e "\n\033[1;33mUnfortunately, no files matching ${pattern} were created.\033[0m"
         fi
     done
 }
