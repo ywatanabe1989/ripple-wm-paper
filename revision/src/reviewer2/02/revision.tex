@@ -1,0 +1,17 @@
+{
+\color{revision_color}
+\revEditor{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{Calculation of NT using GPFA \DIFaddbegin \DIFadd{and Definitions of States}\DIFaddend }
+NTs, also referred to as 'factors', in the hippocampus, EC, and amygdala were determined using GPFA \cite{yu_gaussian-process_2009} applied to the multi-unit activity data for each session, performed with the elephant package (\url{https://elephant.readthedocs.io/en/latest/reference/gpfa.html}). The bin size was set to 50 ms, without overlaps. Each factor was z-normalized across all sessions, and the Euclidean distance from the origin ($O$) was then computed.
+\\
+\indent
+\DIFaddbegin \DIFadd{An optimal GPFA dimensionality was found to be three using the elbow method obtained by examining the log-likelihood values through a three-fold cross-validation approach (Figure~\ref{fig:02}B).
+}\\
+\indent
+\DIFaddend For each NT within a region such as AHL, \DIFdelbegin \DIFdel{geometric medians }\DIFdelend \DIFaddbegin \DIFadd{the geometric median of each phase was calculated }\DIFaddend ($\mathrm{g_{F}}$ for fixation, $\mathrm{g_{E}}$ for encoding, $\mathrm{g_{M}}$ for maintenance, and $\mathrm{g_{R}}$ for retrieval phase)\DIFdelbegin \DIFdel{were calculated by determining the median coordinates of the NT during the four phases. An optimal GPFA dimensionality was found to be three using the elbow method obtained by examining the log-likelihood values through a three-fold cross-validation approach (Figure~\ref{fig:02}B)}\DIFdelend \DIFaddbegin \DIFadd{. In this paper, these geometric medians will also be referred to as "states"}\DIFaddend .
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}
