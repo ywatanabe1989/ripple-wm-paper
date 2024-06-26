@@ -1,4 +1,4 @@
-# RippleWM-revision
+## Revision
 
 [./line-by-line-reply.tex](./line-by-line-reply.tex)
 
