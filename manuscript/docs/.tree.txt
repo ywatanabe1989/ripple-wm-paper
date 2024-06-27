@@ -1,6 +1,6 @@
 .
 ├── bibliography.bib
-├── configs
+├── config
 ├── main.tex
 └── src
     ├── abstract.tex

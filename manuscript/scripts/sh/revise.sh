@@ -14,7 +14,7 @@ function revise() {
 source ./.scripts/sh/.load_files_list.sh
 
 # Load from the config file
-config_file_path="./configs/files_to_revise.txt"
+config_file_path="./config/files_to_revise.txt"
 files_to_revise=$(load_files_list "$config_file_path")
 
 # Main

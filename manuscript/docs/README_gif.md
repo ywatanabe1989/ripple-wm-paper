@@ -21,7 +21,7 @@ To create your manuscript, modify the following files:
 - Bibliography: [`./bibliography.bib`](./bibliography.bib)
 - Main document: [`./main.tex`](./main.tex)
 - Manuscript sections: [`./src/`](./src/)
-- ChatGPT configuration: [`./configs/`](./configs/)
+- ChatGPT configuration: [`./config/`](./config/)
 
 ```bash
 $ ./compile.sh               # Compiles the document
@@ -54,7 +54,7 @@ $ git checkout <commit-hash> -- src/ # Revert to a specific commit:
 The project's structure is outlined in [`./.tree.txt`](./.tree.txt), which is automatically generated. The main components are:
 
 - `bibliography.bib`: The bibliography file
-- `configs/`: Configuration files for ChatGPT
+- `config/`: Configuration files for ChatGPT
 - `main.tex`: The primary LaTeX file
 - `src/`: Sections of the manuscript and figures
 
