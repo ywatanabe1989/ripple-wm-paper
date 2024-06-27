@@ -1,9 +1,9 @@
 #!/bin/bash
 
-pdflatex main
-bibtex main
-pdflatex main
-pdflatex main
+pdflatex main/main
+bibtex main/main
+pdflatex main/main
+pdflatex main/main
 
 # clean-up
 mkdir -p log
