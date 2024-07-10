@@ -8,3 +8,5 @@ pdflatex main/main
 # clean-up
 mkdir -p log
 mv *.cpt *.log *.out *.spl *.tmp log
+
+mv main.pdf ./main/compiled.pdf

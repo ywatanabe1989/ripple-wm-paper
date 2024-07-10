@@ -1,0 +1,85 @@
+RIPPLE_LOW_HZ: 80
+RIPPLE_HIGH_HZ: 140
+RIPPLE_SD: 2
+FS_iEEG: 2000
+FS_EEG: 200
+iEEG_ROIS:
+    - AHL
+    - AHR
+    - PHL
+    - PHR
+    - ECL
+    - ECR
+    - AL
+    - AR
+GPFA_BIN_SIZE_MS: 50
+IS_DEBUG: false
+SUB_DIR: ./data/Sub_SUBJECT/
+SESSION_DIR: ./data/Sub_SUBJECT/Session_SESSION/
+SESSION_THRES: 2
+SWR_BINS:
+    pre:
+        - -16
+        - -5
+    mid:
+        - -5
+        - 6
+    post:
+        - 6
+        - 17
+REPRESENTATIVE_SUBJECT: '06'
+REPRESENTATIVE_SESSION: '02'
+REPRESENTATIVE_TRIAL: '05'
+PUTATIVE_CA1_REGIONS:
+    '01': AHL
+    '03': AHR
+    '04': PHL
+    '06': AHL
+    '09': AHR
+PHASES:
+    - Fixation
+    - Encoding
+    - Maintenance
+    - Retrieval
+PHASES_COLORS:
+    - black
+    - blue
+    - green
+    - red
+PHASES_DUR_SEC:
+    - 1
+    - 2
+    - 3
+    - 2
+PHASES_BINS_ALL:
+    Fixation:
+        - 0
+        - 20
+    Encoding:
+        - 20
+        - 60
+    Maintenance:
+        - 60
+        - 120
+    Retrieval:
+        - 120
+        - 160
+PHASES_BINS_MID_20:
+    Fixation:
+        - 0
+        - 20
+    Encoding:
+        - 30
+        - 50
+    Maintenance:
+        - 80
+        - 100
+    Retrieval:
+        - 130
+        - 150
+ID: 2024Y-05M-31D-16h58m10s_EgK3
+START_TIME: 2024-05-31 16:58:10.047265
+SDIR: 
+    /home/ywatanabe/proj/siEEG_ripple/scripts/representative_NTs/RUNNING/2024Y-05M-31D-16h58m10s_EgK3/
+END_TIME: 2024-05-31 16:58:14.128743
+SPENT_TIME: 00:00:04
