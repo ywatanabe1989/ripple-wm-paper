@@ -8,7 +8,7 @@ We appreciate your critical comments regarding the definitions of states. We use
 \\
 First, we defined states as NT distributions during a phase in the method section. It is noteworthy that we do not focus on how stable, distinguishable from other states, such as the ratio of between-group to within-group variances these states are. This is mainly because NTs, calculated by GPFA, are optimized to smoothly connect trajectories rather than maximize separation between phases.\\
 \\
-Nevertheless, we assessed whether the four phases are linearly distinguishable in NT spaces to discuss the meaning of distances and directions. We used a support vector machine classifier (SVC) in a self-supervised manner with cross-validation. The balanced accuracy of the classification was [fixme ->] XXX [<- fixme], which was above chance level.\\
+Nevertheless, we assessed whether the four phases are linearly distinguishable in NT spaces to discuss the meaning of distances and directions in later analyses. We used a support vector machine classifier (SVC) in a self-supervised manner with cross-validation. The balanced accuracy of the classification was [fixme ->] XXX [<- fixme], which was above chance level.\\
 \\
 Additionally, to confirm whether the NT points include phase-correlated characteristics, we transformed the NT spaces into supervised UMAP spaces using phase labels. The results show the silhouette score, a clustering performance measure, revealed significant differences. While it might be interesting to work on these UMAP spaces, the challenge in interpreting directions and distances in such non-linear transformation led us to adhere to NT spaces in this work.\\
 \\
