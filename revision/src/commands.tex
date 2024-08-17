@@ -1,6 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Custom
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Colors
 \definecolor{editor_color}{rgb}{0.35, 0.35, 0.35}
 \definecolor{reviewer1_color}{rgb}{0.35, 0.35, 0.35}
@@ -11,7 +11,7 @@
 \definecolor{revision_color}{rgb}{0., 0., 1.}
 % \definecolor{added_color}{rgb}{0., 0.5, .75} % 8939 blue
 % \definecolor{added_color}{rgb}{0.078, 0.703, 0.078} % 8939 green
-\definecolor{added_color}{rgb}{0., 0.7, 0.} % 8939 green
+\definecolor{added_color}{rgb}{0., 0.5, 0.} % 8939 green
 % \definecolor{added_color}{rgb}{0., 1., 0.} % green
 % \definecolor{deleted_color}{rgb}{255/256, 70/256, 50/256}
 \definecolor{deleted_color}{rgb}{1., .273, .195}
@@ -47,21 +47,21 @@
 % Editor's and Reviewers' comments
 \newcommand{\editorComment}[1]{
   \stepcounter{EditorCounter}
-  \pdfbookmark[2]{Comments \#\theEditorCounter}{editor-comment-\theEditorCounter}    
+  \pdfbookmark[2]{Comments \#\theEditorCounter}{editor-comment-\theEditorCounter}
   \subsection*{Dr. Rivolta's Comments \#\theEditorCounter}
   \textit{\textcolor{editor_color}{#1}}
 }
 
 \newcommand{\revOneComment}[1]{
   \stepcounter{RevOneCounter}
-  \pdfbookmark[2]{Comments \#\theRevOneCounter}{reviewer-1-comment-\theRevOneCounter}      
+  \pdfbookmark[2]{Comments \#\theRevOneCounter}{reviewer-1-comment-\theRevOneCounter}
   \subsection*{Reviewer \#1's Comments \#\theRevOneCounter}
   \textit{\textcolor{reviewer1_color}{#1}}
 }
 
 \newcommand{\revTwoComment}[1]{
   \stepcounter{RevTwoCounter}
-  \pdfbookmark[2]{Comments \#\theRevTwoCounter}{reviewer-2-comment-\theRevTwoCounter}        
+  \pdfbookmark[2]{Comments \#\theRevTwoCounter}{reviewer-2-comment-\theRevTwoCounter}
   \subsection*{Reviewer \#2's Comments \#\theRevTwoCounter}
   \textit{\textcolor{reviewer1_color}{#1}}
 }
@@ -73,18 +73,18 @@
 
 
 \newcommand{\resRevOne}[1]{
-  \subsection*{\textcolor{author_color}{Response}}  
+  \subsection*{\textcolor{author_color}{Response}}
   % \textcolor{author_color}{#1}
 }
 
 \newcommand{\resRevTwo}[1]{
-  \subsection*{\textcolor{author_color}{Response}}  
+  \subsection*{\textcolor{author_color}{Response}}
   % \textcolor{author_color}{#1}
 }
 
 % Our comments
 \newcommand{\revEditor}[1]{
-  \subsection*{\textcolor{revision_color}{Revision}}  
+  \subsection*{\textcolor{revision_color}{Revision}}
 }
 
 

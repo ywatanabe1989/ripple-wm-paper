@@ -23,6 +23,11 @@
     local n_words=$(texcount "$filename.tex" -inc -1 -sum | grep -oE '[0-9]+' | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta')
     sed -i "s/([0-9,]* words)/($n_words words)/" "$filename.tex"
 }
+# -my-pdflatex-countwords() {
+#     filename=$1
+#     local n_words=$(texcount "$filename.tex" -inc -1 -sum | grep -oE '[0-9]+' | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta')
+#     sed -i "s/([0-9,]* words)/($n_words words)/" "$filename.tex"
+# }
 
 -my-pdflatex-cleanup() {
     filename=$1
@@ -32,7 +37,7 @@
     done
 }
 
-my-pdflatex() {
+-my-pdflatex() {
     ORIG_DIR=$PWD
     local texfile="$1"
     local dir=$(dirname "$texfile")
@@ -40,29 +45,21 @@ my-pdflatex() {
 
     cd "$dir"
 
-    if [[ -e "compile.sh" ]]; then
-        echo -e "\ncompile.sh found. Running this script..."
-        ./compile.sh
-    else
-        -my-pdflatex-countwords $filename
-        -my-pdflatex-compile $filename
-        -my-pdflatex-cleanup $filename
-    fi
+    -my-pdflatex-countwords $filename
+    -my-pdflatex-compile $filename
+    -my-pdflatex-cleanup $filename
+    # if [[ -e "compile.sh" ]]; then
+    #     echo -e "\ncompile.sh found. Running this script..."
+    #     ./compile.sh
+    # else
+    #     -my-pdflatex-countwords $filename
+    #     -my-pdflatex-compile $filename
+    #     -my-pdflatex-cleanup $filename
+    # fi
 
     cd "$ORIG_DIR"
 }
 
-my-pdflatex ./main/revision.tex
+-my-pdflatex ./main/revision.tex
 
-# # $HOME/.bin/my-pdflatex ./main/revision.tex
-
-# my-pdflatex
-# cd
-# pdflatex main/main
-# bibtex main/main
-# pdflatex main/main
-# pdflatex main/main
-
-# # # clean-up
-# # mkdir -p log
-# # mv *.cpt *.log *.out *.spl *.tmp log
+# EOF

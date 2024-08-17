@@ -10,7 +10,7 @@
 %DIF 7c7
 %DIF < \documentclass[final,3p,times,twocolumn]{elsarticle}
 %DIF -------
-%% \documentclass[final,3p,times,twocolumn]{elsarticle} %% Use it for submission %DIF > 
+%% \documentclass[final,3p,times,twocolumn]{elsarticle} %% Use it for submission %DIF >
 %DIF -------
 %% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
 %% for a journal layout:
@@ -23,7 +23,7 @@
 %DIF 16c16
 %DIF < %% \documentclass[preprint,review,12pt]{elsarticle}%% preamble
 %DIF -------
-\documentclass[preprint,review,12pt]{elsarticle}%% preamble %DIF > 
+\documentclass[preprint,review,12pt]{elsarticle}%% preamble %DIF >
 %DIF -------
 \usepackage[english]{babel}
 \usepackage[table]{xcolor} % For coloring tables
@@ -238,11 +238,11 @@ Hippocampal Neural Fluctuations Between Memory Encoding and Retrieval States Dur
 \address[5]{Department of Neurosurgery, Osaka University Graduate School of Medicine, 2-2 Yamadaoka, Osaka, 565-0871, Japan}
 
 \cortext[cor1]{Corresponding author. Tel: +81-6-6879-3652 Email: ywatanabe@alumni.u-tokyo.ac.jp}
-\DIFdelbegin %DIFDELCMD < 
+\DIFdelbegin %DIFDELCMD <
 
 %DIFDELCMD < %%%
 \DIFdelend %%Graphical abstract
-%\pdfbookmark[1]{Graphical Abstract}{graphicalabstract}        
+%\pdfbookmark[1]{Graphical Abstract}{graphicalabstract}
 %\begin{graphicalabstract}
 %\includegraphics{grabs}
 %\end{graphicalabstract}
@@ -251,7 +251,7 @@ Hippocampal Neural Fluctuations Between Memory Encoding and Retrieval States Dur
 Working memory (WM) is crucial for a multitude of cognitive functions, but its underlying neural mechanisms at play remain to be fully understood. Interestingly, the hippocampus and sharp-wave ripples (SWRs)--- transient and synchronous oscillation observed in the hippocampus --- garner recognition for their significance in memory consolidation and retrieval, albeit their correlation with WM tasks remains to be elucidated. Here we show that during a WM task, multi-unit activity patterns in the hippocampus display distinctive dynamics, especially during SWR periods. This study analyzed intracranial electroencephalography data from the medial temporal lobe (MTL) of nine patients with epilepsy, recorded during an eight-second Sternberg task. Utilizing Gaussian-process factor analysis, we extracted low-dimensional neural representations or trajectories (NT) within MTL regions during the Sternberg WM task. The results revealed significant variations in NT of the hippocampus compared to those of the entorhinal cortex and the amygdala. Additionally, the distance of the NT between the encoding and retrieval phases was dependent on memory load. Crucially, hippocampal NT oscillated during the retrieval phase between encoding and retrieval states in a task-dependent manner. Notably, these fluctuations shifted from encoding to retrieval states during SWR episodes. These findings reaffirm the role of the hippocampus in WM tasks and propose a hypothesis: the hippocampus transitions its functional state from encoding to retrieval during SWRs in WM tasks.
 \end{abstract}
 
-% \pdfbookmark[1]{Keywords}{keywords}                
+% \pdfbookmark[1]{Keywords}{keywords}
 \begin{keyword}
 working memory \sep memory load \sep hippocampus \sep sharp-wave ripples \sep humans
 \end{keyword}
@@ -278,7 +278,7 @@ working memory \sep memory load \sep hippocampus \sep sharp-wave ripples \sep hu
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% INTRODUCTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\DIFaddbegin 
+\DIFaddbegin
 
 \DIFaddend \section{Introduction}
 Working memory (WM)\DIFdelbegin \DIFdel{is crucial in everyday life; however, its neural mechanism has yet to be fully elucidated. Specifically, the hippocampus's involvement in WM processing, a pivotal region for memory, is the subject of ongoing research \mbox{%DIFAUXCMD
@@ -409,7 +409,7 @@ and entorhinal cortex (EC) neurons in rodents \mbox{%DIFAUXCMD
 %DIF >  \\
 %DIF >  \indent
 %DIF >  Our findings contribute a pioneering perspective to our understanding of hippocampal dynamics during WM tasks and illuminate critical aspects of the cognitive processing of these tasks. They might also potentially inform the future developments in memory enhancement strategies and interventions for memory deficiencies.
-\DIFaddbegin 
+\DIFaddbegin
 
 
 
@@ -617,7 +617,7 @@ NTs, also referred to as 'factors', in the hippocampus, EC, and amygdala were de
 \indent
 \subsection{\DIFadd{Classification of NT Phases Using a Linear SVM Classifier}}
 \DIFadd{A linear support vector machine classifier was applied to NT data from each session to classify }\DIFaddend the four phases \DIFdelbegin \DIFdel{. An optimal GPFA dimensionality was found to be three using the elbow method obtained by examining the log-likelihood values through a }\DIFdelend \DIFaddbegin \DIFadd{of the task: Fixation, Encoding, Maintenance, and Retrieval, in a supervised manner. Evaluation was conducted using the }\DIFaddend three-fold cross-validation \DIFdelbegin \DIFdel{approach (Figure~\ref{fig:02}B) .
-}%DIFDELCMD < 
+}%DIFDELCMD <
 
 %DIFDELCMD < %%%
 \DIFdelend \DIFaddbegin \DIFadd{method. The classification tasks were also conducted under specific conditions---set size (4, 6, or 8) and task type (Match IN and Mismatch OUT)---as well as an entire session with 50 trials.
@@ -636,7 +636,7 @@ Potential SWR events within the hippocampus were detected using a widely used me
 \\
 \indent
 Control events for $\textrm{SWR}^+$ candidates, labeled as $\textrm{SWR}^-$ candidates, were detected by randomly shuffling the timestamps of $\textrm{SWR}^+$ candidates across all trials and subjects. The resulting $\textrm{SWR}^+/\textrm{SWR}^-$ candidates were then visually inspected.
-\DIFdelbegin %DIFDELCMD < 
+\DIFdelbegin %DIFDELCMD <
 
 %DIFDELCMD < %%%
 \DIFdelend \DIFaddbegin \\
@@ -651,7 +651,7 @@ $\textrm{SWR}^+/\textrm{SWR}^-$ candidates in these predetermined CA1 regions we
 \subsection{Statistical Evaluation}
 Both the Brunner--Munzel test and the Kruskal-Wallis test were executed using the SciPy package in Python \cite{virtanen_scipy_2020}. Correlational analysis was conducted by determining the rank of the observed correlation coefficient within its associated set-size-shuffled surrogate using a customized Python script. The bootstrap test was implemented with an in-house Python script.
 \label{sec:methods}
-\DIFaddbegin 
+\DIFaddbegin
 
 \DIFaddend %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% RESULTS
@@ -702,7 +702,7 @@ As a result, $\mathrm{\lVert \text{mid-eSWR}^+ \rVert}$\footnote{1.25 [1.30], me
 \DIFdelbegin \subsection{\DIFdel{Visualization of Hippocampal NT during SWR in Two-Dimensional Spaces}}
 %DIFAUXCMD
 \addtocounter{subsection}{-1}%DIFAUXCMD
-\DIFdel{Having observed NT 'jumping' during SWR (Figure~\ref{fig:05}), we visualized the three-dimensional NTs of pre-, mid-, and post-SWR events during the encoding and retrieval phases (Figure~\ref{fig:06}). The distance between these was found to be memory-load dependent (Figure~\ref{fig:03}). 
+\DIFdel{Having observed NT 'jumping' during SWR (Figure~\ref{fig:05}), we visualized the three-dimensional NTs of pre-, mid-, and post-SWR events during the encoding and retrieval phases (Figure~\ref{fig:06}). The distance between these was found to be memory-load dependent (Figure~\ref{fig:03}).
 }%DIFDELCMD < \\
 %DIFDELCMD < \indent
 %DIFDELCMD < %%%
@@ -724,7 +724,7 @@ As a result, $\mathrm{\lVert \text{mid-eSWR}^+ \rVert}$\footnote{1.25 [1.30], me
 Subsequently, we investigated the 'direction' of the NT in relation to $\overrightarrow{\mathrm{g_{E}g_{R}}}$, which was found to be dependent on memory load (Figure~\ref{fig:03}). The directions of the SWRs were determined by the NT at $-250$ ms and $+250$ ms from their center, denoted as, for example, $\overrightarrow{\mathrm{eSWR^+}}$. We calculated the cosine similarities between $\overrightarrow{\mathrm{g_{E}g_{R}}}$, $\overrightarrow{\mathrm{eSWR}}$, and $\overrightarrow{\mathrm{rSWR}}$ in both SWR (SWR$^+$) and baseline periods (SWR$^-$) (Figure~\ref{fig:07}A--D).
 \\
 \indent
-$\overrightarrow{\mathrm{rSWR^-}} \cdot \overrightarrow{\mathrm{g_{E}g_{R}}}$ exhibited a biphasic distribution. By computing the difference between the distribution of $\overrightarrow{\mathrm{rSWR^+}} \cdot \overrightarrow{\mathrm{g_{E}g_{R}}}$ (Figure~\ref{fig:07}A \& B) and that of $\overrightarrow{\mathrm{rSWR^-}} \cdot \overrightarrow{\mathrm{g_{E}g_{R}}}$ (Figure~\ref{fig:07}C \& D), we were able to determine the contributions of SWR (Figure~\ref{fig:07}E \& F), which indicated a shift in the direction of $\overrightarrow{\mathrm{g_{E}g_{R}}}$ (Figure~\ref{fig:07}E \& F: \textit{red rectangles}). 
+$\overrightarrow{\mathrm{rSWR^-}} \cdot \overrightarrow{\mathrm{g_{E}g_{R}}}$ exhibited a biphasic distribution. By computing the difference between the distribution of $\overrightarrow{\mathrm{rSWR^+}} \cdot \overrightarrow{\mathrm{g_{E}g_{R}}}$ (Figure~\ref{fig:07}A \& B) and that of $\overrightarrow{\mathrm{rSWR^-}} \cdot \overrightarrow{\mathrm{g_{E}g_{R}}}$ (Figure~\ref{fig:07}C \& D), we were able to determine the contributions of SWR (Figure~\ref{fig:07}E \& F), which indicated a shift in the direction of $\overrightarrow{\mathrm{g_{E}g_{R}}}$ (Figure~\ref{fig:07}E \& F: \textit{red rectangles}).
 \\
 \indent
 Furthermore, $\overrightarrow{\mathrm{eSWR^+}} \cdot \overrightarrow{\mathrm{rSWR^+}}$ was less than $\overrightarrow{\mathrm{eSWR^-}} \cdot \overrightarrow{\mathrm{rSWR^-}}$ strictly in Mismatch OUT task (Figure~\ref{fig:07}F: \textit{pink circles}). In other words, eSWR and rSWR pointed in the opposite direction exclusively in Mismatch OUT task but not Match IN task (Figure~\ref{fig:07}E: \textit{pink circles}).
@@ -733,7 +733,7 @@ Furthermore, $\overrightarrow{\mathrm{eSWR^+}} \cdot \overrightarrow{\mathrm{rSW
 %% DISCUSSION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
-This study hypothesizes that in low-dimensional spaces during a WM task in humans, hippocampal neurons \DIFdelbegin \DIFdel{form unique }\DIFdelend \DIFaddbegin \DIFadd{exhibit WM-task dependent }\DIFaddend NTs, primarily during SWR periods. Initially, multi-unit spikes in the MTL regions were projected onto three-dimensional spaces during a Sternberg task using GPFA (Figure~\ref{fig:01}D--E \& Figure~\ref{fig:02}A). The NT distances across WM phases ($\mathrm{\lVert g_{F}g_{E} \rVert}$, $\mathrm{\lVert g_{F}g_{M} \rVert}$, $\mathrm{\lVert g_{F}g_{R} \rVert}$, $\mathrm{\lVert g_{E}g_{M} \rVert}$, $\mathrm{\lVert g_{E}g_{R} \rVert}$, and $\mathrm{\lVert g_{M}g_{R} \rVert}$) were significantly larger in the hippocampus compared to the EC and amygdala (Figure~\ref{fig:02}C--E)\DIFdelbegin \DIFdel{, indicating dynamic and responsive neural activity in the hippocampus during the WM task}\DIFdelend . Also, in the hippocampus, the NT distance between the encoding and retrieval phases ($\mathrm{\lVert g_{F}g_{E} \rVert}$) \DIFdelbegin \DIFdel{correlated positively }\DIFdelend \DIFaddbegin \DIFadd{positively correlated }\DIFaddend with memory load (Figure~\ref{fig:03}C--D)\DIFdelbegin \DIFdel{, reflecting WM processing}\DIFdelend . The hippocampal \DIFdelbegin \DIFdel{neural }\DIFdelend NT transiently expanded during SWRs (Figure~\ref{fig:05}). Lastly, the hippocampal \DIFdelbegin \DIFdel{neural }\DIFdelend NT alternated between encoding and retrieval states, transitioning from encoding to retrieval \DIFaddbegin \DIFadd{states }\DIFaddend during SWR events (Figure~\ref{fig:07}). These findings explain aspects of hippocampal neural activity during a WM task in humans and offer new insights into SWRs as a state-switching \DIFdelbegin \DIFdel{element }\DIFdelend \DIFaddbegin \DIFadd{manifestation }\DIFaddend in hippocampal neural states.\DIFdelbegin %DIFDELCMD < 
+This study hypothesizes that in low-dimensional spaces during a WM task in humans, hippocampal neurons \DIFdelbegin \DIFdel{form unique }\DIFdelend \DIFaddbegin \DIFadd{exhibit WM-task dependent }\DIFaddend NTs, primarily during SWR periods. Initially, multi-unit spikes in the MTL regions were projected onto three-dimensional spaces during a Sternberg task using GPFA (Figure~\ref{fig:01}D--E \& Figure~\ref{fig:02}A). The NT distances across WM phases ($\mathrm{\lVert g_{F}g_{E} \rVert}$, $\mathrm{\lVert g_{F}g_{M} \rVert}$, $\mathrm{\lVert g_{F}g_{R} \rVert}$, $\mathrm{\lVert g_{E}g_{M} \rVert}$, $\mathrm{\lVert g_{E}g_{R} \rVert}$, and $\mathrm{\lVert g_{M}g_{R} \rVert}$) were significantly larger in the hippocampus compared to the EC and amygdala (Figure~\ref{fig:02}C--E)\DIFdelbegin \DIFdel{, indicating dynamic and responsive neural activity in the hippocampus during the WM task}\DIFdelend . Also, in the hippocampus, the NT distance between the encoding and retrieval phases ($\mathrm{\lVert g_{F}g_{E} \rVert}$) \DIFdelbegin \DIFdel{correlated positively }\DIFdelend \DIFaddbegin \DIFadd{positively correlated }\DIFaddend with memory load (Figure~\ref{fig:03}C--D)\DIFdelbegin \DIFdel{, reflecting WM processing}\DIFdelend . The hippocampal \DIFdelbegin \DIFdel{neural }\DIFdelend NT transiently expanded during SWRs (Figure~\ref{fig:05}). Lastly, the hippocampal \DIFdelbegin \DIFdel{neural }\DIFdelend NT alternated between encoding and retrieval states, transitioning from encoding to retrieval \DIFaddbegin \DIFadd{states }\DIFaddend during SWR events (Figure~\ref{fig:07}). These findings explain aspects of hippocampal neural activity during a WM task in humans and offer new insights into SWRs as a state-switching \DIFdelbegin \DIFdel{element }\DIFdelend \DIFaddbegin \DIFadd{manifestation }\DIFaddend in hippocampal neural states.\DIFdelbegin %DIFDELCMD <
 
 %DIFDELCMD < %%%
 \DIFdel{The distance of the neural NT across the phases was significantly longer }\DIFdelend \DIFaddbegin \\
@@ -749,7 +749,7 @@ This study hypothesizes that in low-dimensional spaces during a WM task in human
 . However, in the present study, applying }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
 \cite{kaminski_persistently_2017, kornblith_persistent_2017, faraut_dataset_2018, boran_persistent_2019}}\hspace{0pt}%DIFAUXCMD
 . In addition to existing literature, the current study, through the application of }\DIFaddend GPFA to multi-unit activity during a one-second level resolution of the WM task\DIFaddbegin \DIFadd{, }\DIFaddend revealed that the \DIFdelbegin \DIFdel{neural }\DIFdelend NT in low-dimensional space presented a memory-load dependency between the encoding and retrieval phases \DIFdelbegin \DIFdel{, denoted as }\DIFdelend \DIFaddbegin \DIFadd{(}\DIFaddend $\mathrm{\lVert g_{E}g_{R} \rVert}$\DIFaddbegin \DIFadd{) }\DIFaddend (Figure~\ref{fig:03}). \DIFdelbegin \DIFdel{These findings support }\DIFdelend \DIFaddbegin \DIFadd{Interestingly, this dependency was not identified in other phase combinations, suggesting that the encoding and retrieval states expanded in opposite directions in response to the WM load. Overall, these findings not only reinforce }\DIFaddend the association of the hippocampus with WM processing \DIFdelbegin \DIFdel{.
-}%DIFDELCMD < 
+}%DIFDELCMD <
 
 %DIFDELCMD < %%%
 \DIFdelend \DIFaddbegin \DIFadd{in humans but also propose a new concept of "hippocampal neural fluctuation between encoding and retrieval states".}\\
@@ -771,7 +771,7 @@ This study hypothesizes that in low-dimensional spaces during a WM task in human
 , supporting our results under }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
 \cite{norman_hippocampal_2019, norman_hippocampal_2021}}\hspace{0pt}%DIFAUXCMD
 , extending our understanding to }\DIFaddend a triggered retrieval condition. \DIFdelbegin \DIFdel{The observed }\DIFdelend \DIFaddbegin \DIFadd{Moreover, the }\DIFaddend log-normal distributions of both SWR duration and ripple band peak amplitude \DIFaddbegin \DIFadd{observed }\DIFaddend in this study (Figure~\ref{fig:04}C \& E) coincide with the \DIFdelbegin \DIFdel{current }\DIFdelend consensus in this field \cite{liu_consensus_2022}. \DIFdelbegin \DIFdel{Consequently, our decision to limit recording sites to putative CA1 regions likely contributed to improving the precision, or true positive rate, of SWR detection. Although, }\DIFdelend \DIFaddbegin \DIFadd{Therefore, these results support the electrode placement and detected SWRs in this study. One could argue that }\DIFaddend the NT distance increase from $O$ during SWRs (Figure~\ref{fig:05}) \DIFdelbegin \DIFdel{might }\DIFdelend \DIFaddbegin \DIFadd{may }\DIFaddend be artificially inflated towards higher values due to channel selection \DIFaddbegin \DIFadd{using UMAP clustering on spike counts. However}\DIFaddend , this potential bias does not \DIFdelbegin \DIFdel{substantially challenge our main findings.
-}%DIFDELCMD < 
+}%DIFDELCMD <
 
 %DIFDELCMD < %%%
 \DIFdel{Interestingly, during the retrieval phase}\DIFdelend \DIFaddbegin \DIFadd{affect the direction of NT, the memory-load dependency, nor the WM task dependency identified in this study.}\\
@@ -782,12 +782,12 @@ This study hypothesizes that in low-dimensional spaces during a WM task in human
 \cite{norman_hippocampal_2021}}\hspace{0pt}%DIFAUXCMD
 }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
 \cite{norman_hippocampal_2019, norman_hippocampal_2021}}\hspace{0pt}%DIFAUXCMD
-}\DIFaddend . Our findings \DIFdelbegin \DIFdel{suggest that}\DIFdelend \DIFaddbegin \DIFadd{demonstrate that, during a WM task in humans, }\DIFaddend (i) neuronal \DIFdelbegin \DIFdel{oscillation }\DIFdelend \DIFaddbegin \DIFadd{fluctuation }\DIFaddend between encoding and retrieval states occurs\DIFdelbegin \DIFdel{during a WM task }\DIFdelend \DIFaddbegin \DIFadd{, }\DIFaddend and (ii) SWR events serve as indicators of the transition in hippocampal neural states from encoding to retrieval\DIFdelbegin \DIFdel{during a WM task.}%DIFDELCMD < 
+}\DIFaddend . Our findings \DIFdelbegin \DIFdel{suggest that}\DIFdelend \DIFaddbegin \DIFadd{demonstrate that, during a WM task in humans, }\DIFaddend (i) neuronal \DIFdelbegin \DIFdel{oscillation }\DIFdelend \DIFaddbegin \DIFadd{fluctuation }\DIFaddend between encoding and retrieval states occurs\DIFdelbegin \DIFdel{during a WM task }\DIFdelend \DIFaddbegin \DIFadd{, }\DIFaddend and (ii) SWR events serve as indicators of the transition in hippocampal neural states from encoding to retrieval\DIFdelbegin \DIFdel{during a WM task.}%DIFDELCMD <
 
 %DIFDELCMD < %%%
 \DIFdelend \DIFaddbegin \DIFadd{.}\\
 \indent
-\DIFaddend Moreover, our study noted differences specific to the WM-task type between encoding- and retrieval-SWRs (Figure~\ref{fig:07}E--F). Notably, opposing movements of encoding-SWR (eSWR) and retrieval-SWR (rSWR) were not observed in Match IN task but were apparent in Mismatch OUT task. \DIFdelbegin \DIFdel{Memory }\DIFdelend \DIFaddbegin \DIFadd{These results might be explained by the memory }\DIFaddend engram theory \cite{liu_optogenetic_2012}\DIFdelbegin \DIFdel{might explain these observations: }\DIFdelend \DIFaddbegin \DIFadd{; }\DIFaddend Match In task presented participants with previously shown letters, while Mismatch OUT task introduced a new letter absent in the encoding phase. This explanation underscores the significant role of SWR in human cognitive processes.\DIFdelbegin %DIFDELCMD < 
+\DIFaddend Moreover, our study noted differences specific to the WM-task type between encoding- and retrieval-SWRs (Figure~\ref{fig:07}E--F). Notably, opposing movements of encoding-SWR (eSWR) and retrieval-SWR (rSWR) were not observed in Match IN task but were apparent in Mismatch OUT task. \DIFdelbegin \DIFdel{Memory }\DIFdelend \DIFaddbegin \DIFadd{These results might be explained by the memory }\DIFaddend engram theory \cite{liu_optogenetic_2012}\DIFdelbegin \DIFdel{might explain these observations: }\DIFdelend \DIFaddbegin \DIFadd{; }\DIFaddend Match In task presented participants with previously shown letters, while Mismatch OUT task introduced a new letter absent in the encoding phase. This explanation underscores the significant role of SWR in human cognitive processes.\DIFdelbegin %DIFDELCMD <
 
 %DIFDELCMD < %%%
 \DIFdel{The application of log-transformation to NT distances influences the correlation analysis in this study (Figure~\ref{fig:03}C \& D), although other statistical tests performed are nonparametric and not affected by the log-transformation. Moreover, The use of log-transformation is justified from several perspectives. First, log-normal distributions are prevalent in the central nervous system, including in the firing rate, the weight and conductance of synpses \mbox{%DIFAUXCMD
@@ -797,7 +797,7 @@ This study hypothesizes that in low-dimensional spaces during a WM task in human
 in the hippocampus, and SWR amplitude and duration \mbox{%DIFAUXCMD
 \cite{liu_consensus_2022}}\hspace{0pt}%DIFAUXCMD
 . Furthermore, GPFA linearly projects neural spike data into a latent space, preserving the temporal structure with Gaussian processes. Therefore, if the input data, spike counts in our case, is log-normally distributed, the latent GPFA space should, ideally, reflect the log-normality. Lastly, the empirical observation of the NT distances, as seen in Figure~\ref{fig:01}, supports the efficacy of our method in detecting subtle differences during baseline periods. Accordingly, the correlation analysis is the only section potentially affected by the use of log-normalization; but this approach will be justified from previous works.
-}%DIFDELCMD < 
+}%DIFDELCMD <
 
 %DIFDELCMD < %%%
 \DIFdelend \DIFaddbegin \\
@@ -806,7 +806,7 @@ in the hippocampus, and SWR amplitude and duration \mbox{%DIFAUXCMD
 \label{sec:discussion}
 
 %DIF >  The application of log-transformation to NT distances influences the correlation analysis in this study (Figure~\ref{fig:03}C \& D), although other statistical tests performed are nonparametric and not affected by the log-transformation. Moreover, The use of log-transformation is justified from several perspectives. First, log-normal distributions are prevalent in the central nervous system, including in the firing rate, the weight and conductance of synpses \cite{ikegaya_interpyramid_2013, buzsaki_log-dynamic_2014} in the hippocampus, and SWR amplitude and duration \cite{liu_consensus_2022}. Furthermore, GPFA linearly projects neural spike data into a latent space, preserving the temporal structure with Gaussian processes. Therefore, if the input data, spike counts in our case, is log-normally distributed, the latent GPFA space should, ideally, reflect the log-normality. Lastly, the empirical observation of the NT distances, as seen in Figure~\ref{fig:01}, supports the efficacy of our method in detecting subtle differences during baseline periods. Accordingly, the correlation analysis is the only section potentially affected by the use of log-normalization; but this approach will be justified from previous works.
-\DIFaddbegin 
+\DIFaddbegin
 
 
 %DIF > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -814,7 +814,7 @@ in the hippocampus, and SWR amplitude and duration \mbox{%DIFAUXCMD
 %DIF > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pdfbookmark[1]{Data Availability Statement}{data_availability}
 
-%DIF >  \pdfbookmark[2]{Data and code availability}{data_and_code_availability}                    
+%DIF >  \pdfbookmark[2]{Data and code availability}{data_and_code_availability}
 \section*{\DIFadd{Data Availability Statement}}
 \DIFadd{The data is available on G-Node (https://doi. gin.g-node.org/10.12751/g-node.d76994/). The source code is available on GitHub (https://github.com/yanagisawa-lab/ hippocampal-neural-fluctuations-during-a-WM-task-in-humans).
 }\label{data and code availability}
@@ -832,7 +832,7 @@ in the hippocampus, and SWR amplitude and duration \mbox{%DIFAUXCMD
 
 %DIF >  %% Numbering Style (sorted and listed)
 %DIF >  [1, 2, 3, 4]
-\DIFaddbegin 
+\DIFaddbegin
 
 \DIFaddend %% Numbering Style (sorted)
 \bibliographystyle{elsarticle-num}
@@ -841,8 +841,8 @@ in the hippocampus, and SWR amplitude and duration \mbox{%DIFAUXCMD
 % \bibliographystyle{plainnat}
 % use \citet{}
 
-%DIF < % Numbering Style (not-sorted) 
-%DIF >  Numbering Style (not-sorted) 
+%DIF < % Numbering Style (not-sorted)
+%DIF >  Numbering Style (not-sorted)
 % \bibliographystyle{plainnat}
 % use \cite{}
 
@@ -853,32 +853,32 @@ in the hippocampus, and SWR amplitude and duration \mbox{%DIFAUXCMD
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pdfbookmark[1]{Additional Information}{additional_information}
 
-\DIFdelbegin %DIFDELCMD < \pdfbookmark[2]{Contributors}{contributors}                    
+\DIFdelbegin %DIFDELCMD < \pdfbookmark[2]{Contributors}{contributors}
 %DIFDELCMD < %%%
-\DIFdelend \DIFaddbegin \pdfbookmark[2]{Ethics Declarations}{ethics_declarations}                    
+\DIFdelend \DIFaddbegin \pdfbookmark[2]{Ethics Declarations}{ethics_declarations}
 \DIFaddend \section*{\DIFdelbegin \DIFdel{Contributors}\DIFdelend \DIFaddbegin \DIFadd{Ethics Declarations}\DIFaddend }
-\DIFaddbegin \DIFadd{All study participants provided their written informed consent, subsequent to the approval from the pertinent institutional ethics review board (Kantonale Ethikkommission Zürich, PB 2016–02055).  
+\DIFaddbegin \DIFadd{All study participants provided their written informed consent, subsequent to the approval from the pertinent institutional ethics review board (Kantonale Ethikkommission Zürich, PB 2016–02055).
 }\label{ethics declarations}
 
-\pdfbookmark[2]{Contributors}{author_contributions}                    
+\pdfbookmark[2]{Contributors}{author_contributions}
 \section*{\DIFadd{Author Contributions}}
 \DIFaddend Y.W. and T.Y. conceptualized the study; Y.W. performed the data analysis; Y.W. and T.Y. wrote the original draft; and all authors reviewed the final manuscript.
 \DIFdelbegin %DIFDELCMD < \label{contributors}
 %DIFDELCMD < %%%
 \DIFdelend \DIFaddbegin \label{author contributions}
-\DIFaddend 
+\DIFaddend
 
-\pdfbookmark[2]{Acknowledgments}{acknowledgments}                    
+\pdfbookmark[2]{Acknowledgments}{acknowledgments}
 \section*{Acknowledgments}
 This research was funded by a grant from the Exploratory Research for Advanced Technology (JPMJER1801).
 \label{acknowledgments}
 
-\pdfbookmark[2]{Declaration of Interests}{declaration_of_interest}                    
+\pdfbookmark[2]{Declaration of Interests}{declaration_of_interest}
 \section*{Declaration of Interests}
 The authors declare that they have no competing interests.
 \label{declaration of interests}
 
-\DIFdelbegin %DIFDELCMD < \pdfbookmark[2]{Data and code availability}{data_and_code_availability}                    
+\DIFdelbegin %DIFDELCMD < \pdfbookmark[2]{Data and code availability}{data_and_code_availability}
 %DIFDELCMD < %%%
 \section*{\DIFdel{Data and code availability}}
 %DIFAUXCMD
@@ -886,10 +886,10 @@ The authors declare that they have no competing interests.
 \DIFdel{). The source code is available on GitHub (}%DIFDELCMD < \url{https://github.com/yanagisawa-lab/hippocampal-neural-fluctuations-during-a-WM-task-in-humans}%%%
 \DIFdel{).
 }%DIFDELCMD < \label{data and code availability}
-%DIFDELCMD < 
+%DIFDELCMD <
 
 %DIFDELCMD < %%%
-\DIFdelend \pdfbookmark[2]{Inclusion and Diversity Statement}{inclusion_and_diversity_statement}        
+\DIFdelend \pdfbookmark[2]{Inclusion and Diversity Statement}{inclusion_and_diversity_statement}
 \section*{Inclusion and Diversity Statement}
 We support inclusive, diverse, and equitable conduct of research.
 \label{inclusion and diversity statement}
@@ -899,7 +899,7 @@ We support inclusive, diverse, and equitable conduct of research.
 The authors employed ChatGPT, provided by OpenAI, for enhancing the manuscript's English language quality. After incorporating the suggested improvements, the authors meticulously revised the content. Ultimate responsibility for the final content of this publication rests entirely with the authors.
 \label{declaration of generative ai in scientific writing}
 
-%% \pdfbookmark[2]{Appendices}{appendices}                    
+%% \pdfbookmark[2]{Appendices}{appendices}
 %% \appendix
 %% \section{}
 %% \label{}
@@ -917,21 +917,21 @@ The authors employed ChatGPT, provided by OpenAI, for enhancing the manuscript's
 \small
 \begin{tabular}{*{11}{c}}
 \toprule
-\textbf{\thead{Subject ID}} &\textbf{\thead{\# of sessions}} &\textbf{\thead{AHL}} &\textbf{\thead{AHR}} &\textbf{\thead{PHL}} &\textbf{\thead{PHR}} &\textbf{\thead{ECL}} &\textbf{\thead{ECR}} &\textbf{\thead{AL}} &\textbf{\thead{AR}} &\textbf{\thead{SOZ}} &\\
+\textbf{\thead{Subject ID}} &\textbf{\thead{\# of sessions}} &\textbf{\thead{AHL}} &\textbf{\thead{AHR}} &\textbf{\thead{PHL}} &\textbf{\thead{PHR}} &\textbf{\thead{ECL}} &\textbf{\thead{ECR}} &\textbf{\thead{AL}} &\textbf{\thead{AR}} &\textbf{\thead{SOZ}} &\\
 \midrule
-#1 & 4 & \checkmark & n.a. & \checkmark & \checkmark & \checkmark & n.a. & \checkmark & n.a. & AHR \& LR\\
+#1 & 4 & \checkmark & n.a. & \checkmark & \checkmark & \checkmark & n.a. & \checkmark & n.a. & AHR \& LR\\
 \rowcolor{lightgray}
-#2 & 7 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHR \& PHR\\
-#3 & 3 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & n.a. & AHL \& PHL\\
+#2 & 7 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHR \& PHR\\
+#3 & 3 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & n.a. & AHL \& PHL\\
 \rowcolor{lightgray}
-#4 & 2 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHL \& AHR \& PHL \& PHR\\
-#5 & 3 & \checkmark & n.a. & n.a. & \checkmark & n.a. & n.a. & \checkmark & n.a. & DRR\\
+#4 & 2 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHL \& AHR \& PHL \& PHR\\
+#5 & 3 & \checkmark & n.a. & n.a. & \checkmark & n.a. & n.a. & \checkmark & n.a. & DRR\\
 \rowcolor{lightgray}
-#6 & 6 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHL \& PHL \& ECL \& AL\\
-#7 & 4 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHR \& PHR\\
+#6 & 6 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHL \& PHL \& ECL \& AL\\
+#7 & 4 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHR \& PHR\\
 \rowcolor{lightgray}
-#8 & 5 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & ECR\\
-#9 & 2 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & ECR \& AR\\
+#8 & 5 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & ECR\\
+#9 & 2 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & ECR \& AR\\
 \bottomrule
 \end{tabular}
 \captionsetup{width=\textwidth}
@@ -952,21 +952,21 @@ This figure denotes the placements of electrodes and seizure onset zones. Region
 \small
 \begin{tabular}{*{5}{c}}
 \toprule
-\textbf{\thead{Subject}} &\textbf{\thead{AHL}} &\textbf{\thead{AHR}} &\textbf{\thead{PHL}} &\textbf{\thead{PHR}} &\\
+\textbf{\thead{Subject}} &\textbf{\thead{AHL}} &\textbf{\thead{AHR}} &\textbf{\thead{PHL}} &\textbf{\thead{PHR}} &\\
 \midrule
-#1 & 0.60 ± 0.14 & n.a. & n.a. & 0.1 ± 0\\
+#1 & 0.60 ± 0.14 & n.a. & n.a. & 0.1 ± 0\\
 \rowcolor{lightgray}
-#2 & 0.21 ± 0.16 & 0.17 ± 0.21 & 0.18 ± 0.22 & 0.20 ± 0.15\\
-#3 & 0.40 ± 0.42 & 0.83 ± 0.12 & n.a. & n.a.\\
+#2 & 0.21 ± 0.16 & 0.17 ± 0.21 & 0.18 ± 0.22 & 0.20 ± 0.15\\
+#3 & 0.40 ± 0.42 & 0.83 ± 0.12 & n.a. & n.a.\\
 \rowcolor{lightgray}
-#4 & 0.10 ± 0.00 & 0.10 ± 0.00 & 0.90 ± 0.00 & 0.10 ± 0.14\\
-#5 & n.a. & n.a. & n.a. & n.a.\\
+#4 & 0.10 ± 0.00 & 0.10 ± 0.00 & 0.90 ± 0.00 & 0.10 ± 0.14\\
+#5 & n.a. & n.a. & n.a. & n.a.\\
 \rowcolor{lightgray}
-#6 & 0.63 ± 0.06 & n.a. & n.a. & 0.27 ± 0.06\\
-#7 & 0.10 ± 0.00 & 0.35 ± 0.35 & 0.37 ± 0.47 & 0.10 ± 0.00\\
+#6 & 0.63 ± 0.06 & n.a. & n.a. & 0.27 ± 0.06\\
+#7 & 0.10 ± 0.00 & 0.35 ± 0.35 & 0.37 ± 0.47 & 0.10 ± 0.00\\
 \rowcolor{lightgray}
-#8 & 0.13 ± 0.10 & n.a. & 0.28 ± 0.49 & n.a.\\
-#9 & n.a. & 0.85 ± 0.07 & 0.15 ± 0.07 & n.a.\\
+#8 & 0.13 ± 0.10 & n.a. & 0.28 ± 0.49 & n.a.\\
+#9 & n.a. & 0.85 ± 0.07 & 0.15 ± 0.07 & n.a.\\
 \bottomrule
 \end{tabular}
 \captionsetup{width=\textwidth}
@@ -984,17 +984,17 @@ The silhouette scores (mean \textpm SD across sessions per subject) for UMAP clu
 \small
 \begin{tabular}{*{6}{c}}
 \toprule
-\textbf{\thead{Subject ID}} &\textbf{\thead{\# of sessions}} &\textbf{\thead{\# of trials}} &\textbf{\thead{ROI}} &\textbf{\thead{\# of SWRs}} &\textbf{\thead{SWR incidence [Hz]}} &\\
+\textbf{\thead{Subject ID}} &\textbf{\thead{\# of sessions}} &\textbf{\thead{\# of trials}} &\textbf{\thead{ROI}} &\textbf{\thead{\# of SWRs}} &\textbf{\thead{SWR incidence [Hz]}} &\\
 \midrule
-\#1 & 2 & 100 & AHL & 274 & 0.34\\
+\#1 & 2 & 100 & AHL & 274 & 0.34\\
 \rowcolor{lightgray}
-\#3 & 2 & 97 & AHR & 325 & 0.42\\
-\#4 & 2 & 99 & PHL & 202 & 0.26\\
+\#3 & 2 & 97 & AHR & 325 & 0.42\\
+\#4 & 2 & 99 & PHL & 202 & 0.26\\
 \rowcolor{lightgray}
-\#6 & 2 & 100 & AHL & 297 & 0.37\\
-\#9 & 2 & 97 & AHR & 72 & 0.09\\
+\#6 & 2 & 100 & AHL & 297 & 0.37\\
+\#9 & 2 & 97 & AHR & 72 & 0.09\\
 \rowcolor{lightgray}
-\ &  Total = 10 & Total = 493 & \ & Total = 1170 & 0.30 ± 0.13 (mean ± SD)\\
+\ &  Total = 10 & Total = 493 & \ & Total = 1170 & 0.30 ± 0.13 (mean ± SD)\\
 \bottomrule
 \end{tabular}
 \captionsetup{width=\textwidth}
@@ -1017,7 +1017,7 @@ The table provides statistics of presumptive CA1 regions and SWR events. Only th
 \section*{Figures}
 \label{figures}
 \pdfbookmark[1]{Figures}{figures}
-\DIFaddbegin 
+\DIFaddbegin
 
         \DIFaddend \clearpage
         \begin{figure*}[ht]
