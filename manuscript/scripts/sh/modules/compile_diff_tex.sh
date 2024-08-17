@@ -10,12 +10,15 @@ function compile_diff_tex() {
         echo -e "\nCompiling $input_diff_tex..."
 
         # ./scripts/sh/modules/my-pdflatex.sh $input_diff_tex
-        yes '' | pdflatex -shell-escape $input_diff_tex >/dev/null
-        bibtex ${input_diff_tex%.tex} >/dev/null # 2>&1
-        yes '' | pdflatex -shell-escape $input_diff_tex >/dev/null
-        yes '' | pdflatex -shell-escape $input_diff_tex >/dev/null
+        pdflatex -interaction=nonstopmode $input_diff_tex 2>&1 >/dev/null
+        # yes '' | pdflatex -shell-escape $input_diff_tex 2&1> /dev/null
+        # mv diff.aux main
+        bibtex diff 2>&1 > /dev/null
+        # bibtex ${input_diff_tex%.tex} 2&1> /dev/null
+        yes '' | pdflatex -shell-escape $input_diff_tex 2>&1 > /dev/null
+        yes '' | pdflatex -shell-escape $input_diff_tex 2>&1 > /dev/null
 
-        mv ./diff.pdf ./main/diff.pdf
+        mv ./diff.pdf ./main/diff.pdf -f
 
         if [ -f $output_diff_pdf ]; then
             echo -e "\n\033[1;33mCompiled: $output_diff_pdf\033[0m"
