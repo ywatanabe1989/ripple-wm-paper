@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo -e "$0 ..."
+
 # Function to load file paths from a config file
 load_files_list() {
     local config_file_path="$1"

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo -e "$0 ..."
+
 inputFilePath=$1 # must be fullpath
 
 echo -e "\nConverting ${inputFilePath}..."

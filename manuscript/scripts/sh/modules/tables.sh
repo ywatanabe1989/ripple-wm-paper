@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo -e "$0 ..."
+
 function gather_tables() {
     rm ./src/tables/.tex/.All_Tables.tex -f > /dev/null 2>&1
     for table_tex in ./src/tables/.tex/Table_*.tex; do
@@ -13,7 +15,7 @@ function csv2tex() {
 
     csv_dir="./src/tables/"
     legend_dir="./src/tables/"
-    
+
     output_dir="./src/tables/.tex/"
 
     mkdir -p $csv_dir $output_dir > /dev/null
@@ -44,25 +46,25 @@ function csv2tex() {
             head -n 1 "$csv_file" | {
                 IFS=',' read -ra headers
                 for header in "${headers[@]}"; do
-                    echo -n "\\textbf{\\thead{${header}}} &" # [REVISED]                    
+                    echo -n "\\textbf{\\thead{${header}}} &" # [REVISED]
                 done
                 echo "\\\\"
             }
             echo "\\midrule"
 
             # Table contents
-            awk 'BEGIN {FPAT = "([^,]+)|(\"[^\"]+\")"; OFS=" & "; row_count=0} 
+            awk 'BEGIN {FPAT = "([^,]+)|(\"[^\"]+\")"; OFS=" & "; row_count=0}
                 NR>1 {
                     if (row_count % 2 == 1) {print "\\rowcolor{lightgray}"}
                     $1=$1; print $0"\\\\"
                     row_count++
-                }' "$csv_file"            
+                }' "$csv_file"
             echo "\\bottomrule"
             echo "\\end{tabular}"
             echo "\\captionsetup{width=\textwidth}"
             echo "\\input{${legend_dir}Table_ID_${table_id}}"
             echo ""
-            echo "\\label{tab:${table_id}}"            
+            echo "\\label{tab:${table_id}}"
             echo "\\end{table*}"
             echo "\\restoregeometry"
 

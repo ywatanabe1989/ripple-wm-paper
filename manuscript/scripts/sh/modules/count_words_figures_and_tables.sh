@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo -e "$0 ..."
+
 # Prepares a directory
 TGT_DIR=./src/wordcounts
 mkdir -p $TGT_DIR

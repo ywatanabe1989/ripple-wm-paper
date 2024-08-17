@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo -e "$0 ..."
+
 function open_pdf_with_pdfstudio2020_on_WSL() {
     # Define the path to PDF Studio executable in Windows format
     PDF_STUDIO_PATH="C:\Program Files\PDFStudio2020\pdfstudio2020.exe"

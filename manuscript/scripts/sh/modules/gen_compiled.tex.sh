@@ -1,8 +1,10 @@
 #!/bin/bash
 
+echo -e "$0 ..."
+
 gen_the_compiled_tex_file() {
-    main_file="./main.tex"
-    output_file="./manuscript.tex"
+    main_file="./main/main.tex"
+    output_file="./main/manuscript.tex"
     cp "$main_file" "$output_file" -f
 
     echo
@@ -34,7 +36,7 @@ gen_the_compiled_tex_file() {
         process_input "$output_file"
     done
 
-    echo -e "\nCompiled: $output_file"
+    echo -e "\n\033[1;33mCompiled: $output_file\033[0m"
 }
 
 gen_the_compiled_tex_file

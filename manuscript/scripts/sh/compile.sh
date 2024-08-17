@@ -2,6 +2,10 @@
 
 LOG_FILE="./.logs/compile.log"
 
+echo_splitter() {
+    echo -e "\n----------------------------------------"
+    }
+
 parse_arguments() {
     do_insert_citations=false
     do_revise=false
@@ -37,6 +41,7 @@ display_usage() {
 }
 
 log_command() {
+    echo_splitter
     echo "./compile.sh" \
          $(if $do_push; then echo "--push "; fi) \
          $(if $do_revise; then echo "--revise "; fi) \
@@ -44,82 +49,126 @@ log_command() {
          $(if $do_p2t; then echo "--ppt2tif "; fi) \
          $(if $do_insert_citations; then echo "--citations "; fi) \
          $(if $no_figs; then echo "--no-figs"; fi)
+    echo_splitter
 }
 
 run_checks() {
+    echo_splitter
     ./scripts/sh/modules/check.sh
+    echo_splitter
 }
 
 convert_pptx_to_tif() {
     if [ "$do_p2t" = "true" ] && [ "$no_figs" = "false" ]; then
+        echo_splitter
         ./scripts/sh/modules/pptx2tif_all.sh
+        echo_splitter
     fi
 }
 
 crop_figures() {
     if [ "$no_figs" = false ]; then
+        echo_splitter
         ./scripts/sh/modules/crop_figures.sh
+        echo_splitter
     fi
 }
 
 revise_tex_files() {
     if [ "$do_revise" = true ]; then
+        echo_splitter
         ./scripts/sh/revise.sh
+        echo_splitter
     fi
 }
 
 insert_citations() {
     if [ "$do_insert_citations" = true ]; then
+        echo_splitter
         ./scripts/sh/insert_citations.sh
+        echo_splitter
     fi
 }
 
 count_words_figures_tables() {
+    echo_splitter
     ./scripts/sh/modules/count_words_figures_and_tables.sh
+    echo_splitter
 }
 
 compile_main_tex() {
+    echo_splitter
     if $no_figs; then
         ./scripts/sh/modules/compile_main.tex.sh --no-figs
     else
         ./scripts/sh/modules/compile_main.tex.sh
     fi
+    echo_splitter
 }
 
 generate_compiled_tex() {
+    echo_splitter
     ./scripts/sh/modules/gen_compiled.tex.sh
+    echo_splitter
 }
 
-generate_and_compile_diff() {
-    ./scripts/sh/modules/gen_and_compile_diff.sh
+generate_diff_tex() {
+    echo_splitter
+    ./scripts/sh/modules/gen_diff_tex.sh
+    echo_splitter
 }
+
+compile_diff_tex() {
+    echo_splitter
+    ./scripts/sh/modules/compile_diff_tex.sh
+    echo_splitter
+}
+
+# generate_and_compile_diff() {
+#     echo_splitter
+#     ./scripts/sh/modules/gen_and_compile_diff.sh
+#     echo_splitter
+# }
 
 cleanup() {
+    echo_splitter
     ./scripts/sh/modules/cleanup.sh
+    echo_splitter
 }
 
 versioning() {
+    echo_splitter
     ./scripts/sh/modules/versioning.sh
+    echo_splitter
 }
 
 print_success() {
+    echo_splitter
     ./scripts/sh/modules/print_success.sh
+    echo_splitter
 }
 
 check_terms() {
     if [ "$do_term_check" = true ]; then
+        echo_splitter
         ./scripts/sh/modules/check_terms.sh
+        echo_splitter
     fi
 }
 
 custom_tree() {
+    echo_splitter
     ./scripts/sh/modules/custom_tree.sh
+    echo_splitter
 }
 
 git_push() {
     if [ "$do_push" = true ]; then
+        echo_splitter
         ./scripts/sh/modules/git_push.sh
+        echo_splitter
     fi
+
 }
 
 
@@ -134,7 +183,9 @@ main() {
     count_words_figures_tables
     compile_main_tex
     generate_compiled_tex
-    generate_and_compile_diff
+    generate_diff_tex
+    compile_diff_tex
+    # generate_and_compile_diff
     cleanup
     versioning
     print_success
