@@ -1,0 +1,28 @@
+name: compile-manuscript
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install LaTeX
+      run: ./manuscript/scripts/sh/install_on_ubuntu.sh
+
+    - name: Install Python
+      run: ./manuscript/scripts/sh/gen_pyenv.sh
+
+    - name: Run compile script
+      run: ./manuscript/compile.sh
+
+    # - name: Generate tree.txt and update README
+    #   run: |
+    #     tree > .tree.txt
+    #     sed -i '/TREE_PLACEHOLDER/r .tree.txt' README.md
+    #     sed -i '/TREE_PLACEHOLDER/d' README.md
