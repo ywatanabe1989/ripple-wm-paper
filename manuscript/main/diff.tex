@@ -1,7 +1,7 @@
 \UseRawInputEncoding
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL ./old/compiled_vXXX_submitted_base.tex   Fri May 24 09:29:57 2024
-%DIF ADD ./main/manuscript.tex                    Sat Aug 17 17:34:09 2024
+%DIF ADD ./main/manuscript.tex                    Sat Aug 17 19:45:06 2024
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% SETTINGS
@@ -774,8 +774,11 @@ in the hippocampus, and SWR amplitude and duration \mbox{%DIFAUXCMD
 %% REFERENCE STYLES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pdfbookmark[1]{References}{references}
-\bibliography{bibliography}
-% Note Re-compile is required
+\DIFdelbegin %DIFDELCMD < \bibliography{bibliography}
+%DIFDELCMD < %%%
+\DIFdelend %DIF > % \bibliography{main}
+\DIFaddbegin \bibliography{./src/bibliography}
+\DIFaddend % Note Re-compile is required
 
 %DIF >  %% Numbering Style (sorted and listed)
 %DIF >  [1, 2, 3, 4]
