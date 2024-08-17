@@ -6,7 +6,7 @@
 import os
 import sys
 
-sys.path.append("./.scripts/py/")
+sys.path.append("./scripts/py/")
 from utils import ChatGPT, back_up, load_tex, save_tex, show_diff
 
 
@@ -59,5 +59,5 @@ if __name__ == "__main__":
 
     insert_citations(args.lpath_tex, args.lpath_bib)
 
-    # python ./.scripts/insert_citations.py -lt ./src/introduction.tex -lb ./bibliography.bib
+    # python ./scripts/insert_citations.py -lt ./src/introduction.tex -lb ./bibliography.bib
     # cat ./src/introduction_cited.tex

@@ -2,8 +2,8 @@
 
 OLD_DIR=./old/
 
-COMPILED_PDF=./compiled.pdf
-COMPILED_TEX=./compiled.tex
+COMPILED_PDF=./manuscript.pdf
+COMPILED_TEX=./manuscript.tex
 
 DIFF_TEX=./diff.tex
 DIFF_PDF=./diff.pdf

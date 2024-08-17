@@ -5,7 +5,7 @@
 import os
 import sys
 
-sys.path.append("./.scripts/py/")
+sys.path.append("./scripts/py/")
 from utils import load_tex, save_tex, show_diff
 
 
@@ -23,7 +23,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--lpath_1", default="./.compiled.tex")
+    parser.add_argument("--lpath_1", default="./.manuscript.tex")
     parser.add_argument("--lpath_2", default="./old/compile_v001.tex")
     parser.add_argument("--spath", default="./diff.tex")
     args = parser.parse_args()

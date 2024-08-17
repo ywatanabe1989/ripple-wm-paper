@@ -2,7 +2,7 @@
 
 gen_the_compiled_tex_file() {
     main_file="./main.tex"
-    output_file="./compiled.tex"
+    output_file="./manuscript.tex"
     cp "$main_file" "$output_file" -f
 
     echo

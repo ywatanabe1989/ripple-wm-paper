@@ -1,8 +1,9 @@
 #!/bin/bash
 
 function gen_and_compile_diff() {
-    base_tex=$(ls -v ./old/compiled_v*base.tex 2>/dev/null | tail -n 1)    
-    latest_tex=$(ls -v ./old/compiled_v*.tex 2>/dev/null | tail -n 1)    
+    base_tex=$(ls -v ./old/compiled_v*base.tex 2>/dev/null | tail -n 1)
+    # latest_tex=$(ls -v ./old/compiled_vYYY.tex 2>/dev/null | tail -n 1)
+    latest_tex=$(ls -v ./old/compiled_v[0-9]*.tex 2>/dev/null | tail -n 1)
 
     # Check if base_tex file exists and is not empty
     if [[ -n "$base_tex" ]]; then
@@ -10,10 +11,10 @@ function gen_and_compile_diff() {
         base_tex=$base_tex
     else
         echo "\nNo base .tex file found."
-        base_tex=$latest_tex        
+        base_tex=$latest_tex
     fi
 
-    current_tex="./compiled.tex"
+    current_tex="./manuscript.tex"
 
     if [ -n "$base_tex" ] && [ -f "$current_tex" ]; then
         echo -e "\nTaking diff between $base_tex & $current_tex"

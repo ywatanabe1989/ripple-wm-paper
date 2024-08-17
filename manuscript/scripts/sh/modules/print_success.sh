@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function print_success() {
-    declare -a files_to_check=("compiled.pdf" "diff.pdf")
+    declare -a files_to_check=("manuscript.pdf" "diff.pdf")
 
     for pattern in "${files_to_check[@]}"; do
         files_found=$(ls ./${pattern} 2> /dev/null)

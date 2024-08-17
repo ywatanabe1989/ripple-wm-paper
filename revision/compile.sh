@@ -1,12 +1,14 @@
 #!/bin/bash
 
-pdflatex main/main
-bibtex main/main
-pdflatex main/main
-pdflatex main/main
+~/.bin/my-pdflatex ./main/revision.tex
 
-# clean-up
-mkdir -p log
-mv *.cpt *.log *.out *.spl *.tmp log
+# my-pdflatex
+# cd
+# pdflatex main/main
+# bibtex main/main
+# pdflatex main/main
+# pdflatex main/main
 
-mv main.pdf ./main/compiled.pdf
+# # clean-up
+# mkdir -p log
+# mv *.cpt *.log *.out *.spl *.tmp log

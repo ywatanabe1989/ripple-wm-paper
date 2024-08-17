@@ -104,4 +104,4 @@ if __name__ == "__main__":
 
     # # pptx_path = sys.argv[1]
     # convert_pptx_to_tif(pptx_path)
-    # # ./.env/bin/python ./.scripts/py/pptx2tif.py ./src/figures/Figure_01.pptx
+    # # ./.env/bin/python ./scripts/py/pptx2tif.py ./src/figures/Figure_01.pptx

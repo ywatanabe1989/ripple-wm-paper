@@ -70,5 +70,5 @@ if __name__ == "__main__":
     # Crop the TIF image
     crop_tif(args.lpath_tif, margin=args.margin) 
 
-    # ./.env/bin/python ./.scripts/py/crop_tif.py -l ./src/figures/Figure_ID_04.tif
+    # ./.env/bin/python ./scripts/py/crop_tif.py -l ./src/figures/Figure_ID_04.tif
     

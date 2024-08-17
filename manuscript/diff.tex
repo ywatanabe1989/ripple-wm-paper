@@ -1,7 +1,7 @@
 \UseRawInputEncoding
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL ./old/compiled_vXXX_submitted_base.tex   Fri May 24 09:29:57 2024
-%DIF ADD ./compiled.tex                           Sun May 26 15:11:02 2024
+%DIF ADD ./manuscript.tex                         Sat Aug 17 16:17:53 2024
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% SETTINGS
@@ -206,6 +206,7 @@
 
 \begin{document}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Frontmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -224,19 +225,33 @@
 
 \end{highlights}\title{
 Hippocampal Neural Fluctuations Between Memory Encoding and Retrieval States During a Working Memory Task in Humans
-}\author[1]{Yusuke Watanabe\corref{cor1}}
-\author[2,3,4]{Yuji Ikegaya}
-\author[1,5]{Takufumi Yanagisawa}
+}\DIFdelbegin %DIFDELCMD < \author[1]{%%%
+\DIFdelend \DIFaddbegin \author[1,2]{\DIFaddend Yusuke Watanabe\corref{cor1}}
+\DIFdelbegin %DIFDELCMD < \author[2,3,4]{%%%
+\DIFdel{Yuji Ikegaya}\DIFdelend %DIF >  \author[2,3,4]{Yuji Ikegaya}
+\DIFaddbegin \author[1,3]{\DIFadd{Takufumi Yanagisawa}\DIFaddend }
+\DIFdelbegin %DIFDELCMD < \author[1,5]{Takufumi Yanagisawa}
+%DIFDELCMD < %%%
+\DIFdelend 
 
 \address[1]{Institute for Advanced Cocreation studies, Osaka University, 2-2 Yamadaoka, Suita, 565-0871, Osaka, Japan}
-\address[2]{Graduate School of Pharmaceutical Sciences, The University of Tokyo, 7-3-1 Hongo, Tokyo, 113-0033, Japan}
-\address[3]{Institute for AI and Beyond, The University of Tokyo, 7-3-1 Hongo, Tokyo, 113-0033, Japan}
-\address[4]{Center for Information and Neural Networks, National Institute of Information and Communications Technology, 1-4 Yamadaoka, Suita City, 565-0871, Osaka, Japan}
-\address[5]{Department of Neurosurgery, Osaka University Graduate School of Medicine, 2-2 Yamadaoka, Osaka, 565-0871, Japan}
+\DIFdelbegin %DIFDELCMD < \address[2]{Graduate School of Pharmaceutical Sciences, The University of Tokyo, 7-3-1 Hongo, Tokyo, 113-0033, Japan}
+%DIFDELCMD < \address[3]{Institute for AI and Beyond, The University of Tokyo, 7-3-1 Hongo, Tokyo, 113-0033, Japan}
+%DIFDELCMD < \address[4]{Center for Information and Neural Networks, National Institute of Information and Communications Technology, 1-4 Yamadaoka, Suita City, 565-0871, Osaka, Japan}
+%DIFDELCMD < \address[5]{Department of Neurosurgery, Osaka University Graduate School of Medicine, 2-2 Yamadaoka, Osaka, 565-0871, Japan}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \address[2]{Department of Biomedical Engineering, The University of Melbourne, Melbourne, Victoria, 3010, Australia}
+%DIF >  \address[2]{Graduate School of Pharmaceutical Sciences, The University of Tokyo, 7-3-1 Hongo, Tokyo, 113-0033, Japan}
+%DIF >  \address[3]{Institute for AI and Beyond, The University of Tokyo, 7-3-1 Hongo, Tokyo, 113-0033, Japan}
+%DIF >  \address[4]{Center for Information and Neural Networks, National Institute of Information and Communications Technology, 1-4 Yamadaoka, Suita City, 565-0871, Osaka, Japan}
+\address[3]{Department of Neurosurgery, Osaka University Graduate School of Medicine, 2-2 Yamadaoka, Osaka, 565-0871, Japan}
+\DIFaddend 
 
 \cortext[cor1]{Corresponding author. Tel: +81-6-6879-3652 Email: ywatanabe@alumni.u-tokyo.ac.jp}
+\DIFdelbegin %DIFDELCMD < 
 
-%%Graphical abstract
+%DIFDELCMD < %%%
+\DIFdelend %%Graphical abstract
 %\pdfbookmark[1]{Graphical Abstract}{graphicalabstract}        
 %\begin{graphicalabstract}
 %\includegraphics{grabs}
@@ -256,12 +271,16 @@ working memory \sep memory load \sep hippocampus \sep sharp-wave ripples \sep hu
 %% Counters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DIFdelbegin %DIFDELCMD < \begin{wordcount*}
-%DIFDELCMD < %%%
+%DIFDELCMD < \readwordcount{./src/.figure_count.txt} %%%
+\DIFdel{figures, }%DIFDELCMD < \readwordcount{./src/.table_count.txt} %%%
+\DIFdel{tables, }%DIFDELCMD < \readwordcount{./src/.abstract_count.txt} %%%
 \DIFdelend \DIFaddbegin \begin{*wordcount}
-\DIFaddend \readwordcount{./src/.figure_count.txt} figures, \readwordcount{./src/.table_count.txt} tables, \readwordcount{./src/.abstract_count.txt} words for abstract, and \readwordcount{./src/.imrd_count.txt} words for main text
+\readwordcount{./src/wordcounts/figure_count.txt} \DIFadd{figures, }\readwordcount{./src/wordcounts/table_count.txt} \DIFadd{tables, }\readwordcount{./src/wordcounts/abstract_count.txt} \DIFaddend words for abstract, and \DIFdelbegin %DIFDELCMD < \readwordcount{./src/.imrd_count.txt} %%%
+\DIFdelend \DIFaddbegin \readwordcount{./src/wordcounts/imrd_count.txt} \DIFaddend words for main text
 \DIFdelbegin %DIFDELCMD < \end{wordcount*}
 %DIFDELCMD < %%%
 \DIFdelend \DIFaddbegin \end{*wordcount}
+
 \DIFaddend %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% IMRaD
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -424,16 +443,145 @@ and entorhinal cortex (EC) neurons in rodents \mbox{%DIFAUXCMD
 \subsection{Dataset}
 The dataset used in this study, which is publicly available, comprises nine epilepsy patients performing a modified the Sternberg task \cite{boran_dataset_2020}. This task includes four phases: fixation (1s), encoding (2s), maintenance (3s), and retrieval (2s). During the encoding phase, participants were presented with a set of four, six, or eight alphabet letters. They were then tasked with determining whether a probe letter displayed during the retrieval phase had previously appeared (the correct response for Match IN task) or not (the correct response for Mismatch OUT task). Intracranial electroencephalography (iEEG) signals were captured with a 32 kHz sampling rate within a 0.5--5,000 Hz frequency range, using depth electrodes in the MTL regions: the anterior head of the left and right hippocampus (AHL and AHR), the posterior body of the hippocampus (PHL and PHR), the entorhinal cortex (ECL and ECR), and the amygdala (AL and AR), as depicted in Figure~\ref{fig:01}A and Table~\ref{tab:01}. The iEEG signals were subsequently downsampled to 2 kHz. Correlations between variables such as set size and correct rate were examined (Figure~\ref{fig:s01}S1). Multiunit spike timing was determined via a spike sorting algorithm \cite{niediek_reliable_2016} using the Combinato package (\url{https://github.com/jniediek/combinato})(Figure~\ref{fig:01}C).
 
-\subsection{Calculation of NT using GPFA \DIFaddbegin \DIFadd{and Definitions of States}\DIFaddend }
+\subsection{Calculation of NT using GPFA}
 NTs, also referred to as 'factors', in the hippocampus, EC, and amygdala were determined using GPFA \cite{yu_gaussian-process_2009} applied to the multi-unit activity data for each session, performed with the elephant package (\url{https://elephant.readthedocs.io/en/latest/reference/gpfa.html}). The bin size was set to 50 ms, without overlaps. Each factor was z-normalized across all sessions, and the Euclidean distance from the origin ($O$) was then computed.
 \\
 \indent
-\DIFaddbegin \DIFadd{An optimal GPFA dimensionality was found to be three using the elbow method obtained by examining the log-likelihood values through a three-fold cross-validation approach (Figure~\ref{fig:02}B).
+\DIFdelbegin \DIFdel{For each NT within a region such as AHL, geometric medians ($\mathrm{g_{F}}$ }\DIFdelend \DIFaddbegin \DIFadd{An optimal GPFA dimensionality was found to be three using the elbow method obtained by examining the log-likelihood values through a three-fold cross-validation approach (Figure~\ref{fig:02}B).
+}
+
+%DIF > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%DIF >  \subsection{Calculation of Geometric Medians of NT}
+%DIF >  For each NT within an ROI, the geometric median of the middle of 1 second of each phase was calculated and assigned as $\mathrm{g_{F}}$ for fixation, $\mathrm{g_{E}}$ for encoding, $\mathrm{g_{M}}$ for maintenance, and $\mathrm{g_{R}}$ for retrieval phase. The calculation of geometric medians were processed using the Python geom_median package (\url{https://github.com/krishnap25/geom_median?tab=readme-ov-file}). \cite{pillutla:etal:rfa} Namely,
+%DIF >  \text{The geometric median of } x_1, \dots, x_n \in \mathbb{R}^d \text{ with weights } \alpha_1, \dots, \alpha_n \geq 0 \text{ is defined as}
+%DIF >  x_{GM} = \arg\min_{z \in \mathbb{R}^d} \sum_{i=1}^n \alpha_i \|z - x_i\|_2.
+
+
+%DIF > % \subsection{Defining Phase States}
+%DIF > % States of phases (states) were defined as the NT during phases:
+
+%DIF > % \begin{equation}
+%DIF > % \mathrm{S_F} = \{N_{i} | i = 1, ..., 20\}
+%DIF > % \end{equation}
+
+%DIF > % \begin{equation}
+%DIF > % \mathrm{S_E} = \{N_{i} | i = 21, ..., 60\}
+%DIF > % \end{equation}
+
+%DIF > % \begin{equation}
+%DIF > % \mathrm{S_M} = \{N_{i} | i = 61, ..., 120\}
+%DIF > % \end{equation}
+
+%DIF > % \begin{equation}
+%DIF > % \mathrm{S_R} = \{N_{i} | i = 121, ..., 160\}
+%DIF > % \end{equation}
+
+
+%DIF > % , where $\mathrm{S_F}$ is the state of fixation, $\mathrm{S_E}$ is encoding, $\mathrm{S_M}$ is maintenance, and $\mathrm{S_R}$ is retrieval; $N_{i}$ is the $i$-th NT coordinate, calculated from 50-ms unit activity data.
+
+%DIF > % \subsection{Geometric Medians of States}
+%DIF > % From the middle 1 second (= 20 x 50-ms bins) of each state, the geometric median was calculated:
+
+%DIF > % \begin{equation}
+%DIF > % \mathrm{g_F} = f_{geometric\_median}(\{N_{i} | i = 1, ..., 20\})
+%DIF > % \end{equation}
+
+%DIF > % \begin{equation}
+%DIF > % \mathrm{g_E} = f_{geometric\_median}(\{N_{i} | i = 31, ..., 50\})
+%DIF > % \end{equation}
+
+%DIF > % \begin{equation}
+%DIF > % \mathrm{g_M} = f_{geometric\_median}(\{N_{i} | i = 81, ..., 100\})
+%DIF > % \end{equation}
+
+%DIF > % \begin{equation}
+%DIF > % \mathrm{g_R} = f_{geometric\_median}(\{N_{i} | i = 131, ..., 150\})
+%DIF > % \end{equation}
+
+%DIF > % , where $\mathrm{g_{F}}$, $\mathrm{g_{E}}$, $\mathrm{g_{M}}$, and $\mathrm{g_{R}}$ are geometric medians for fixation, encoding, maintenance, and retrieval phases, respectively; $\mathrm{f_{geometric\_median}}$ is the function to calculate geometric median (using the Python geom\_median package (\url{https://github.com/krishnap25/geom_median?tab=readme-ov-file}). \cite{pillutla:etal:rfa}); and $N_{i}$ is the $i$-th NT coordinate, calculated from 50-ms unit activity data.\\
+%DIF > % \\
+%DIF > % It is note worthy that geometric median is calculated by minimizing the sum of distances to the sample points:
+%DIF > % %% the geometric median of $x_1, \dots, x_n \in \mathbb{R}^d$ is defined as
+%DIF > % \begin{equation}
+%DIF > % $x_{GM} = \arg\min_{z \in \mathbb{R}^d} \sum_{i=1}^n \|z - x_i\|_2$.
+%DIF > % \end{equation}
+%DIF > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\subsection{\DIFadd{Defining Phase States}}
+\DIFadd{States of phases were defined as the NT during phases:
+}
+
+\begin{equation}
+\DIFadd{S_F = \{N_{i} | i = 1, ..., 20\}
+}\end{equation}
+
+\begin{equation}
+\DIFadd{S_E = \{N_{i} | i = 21, ..., 60\}
+}\end{equation}
+
+\begin{equation}
+\DIFadd{S_M = \{N_{i} | i = 61, ..., 120\}
+}\end{equation}
+
+\begin{equation}
+\DIFadd{S_R = \{N_{i} | i = 121, ..., 160\}
+}\end{equation}
+
+
+\DIFadd{where $S_F$ is the state of fixation, $S_E$ is encoding, $S_M$ is maintenance, and $S_R$ is retrieval; $N_{i}$ is the $i^{th}$ NT coordinate, calculated from 50-ms unit activity data.
+}
+
+\subsection{\DIFadd{Geometric Medians of States}}
+\DIFadd{From the middle 1 second (= 20 x 50-ms bins) of each state, the geometric median was calculated:
+}
+
+\begin{equation}
+\DIFadd{g_F = f_{GM}(\{N_{i} | i = 1, ..., 20\})
+}\end{equation}
+
+\begin{equation}
+\DIFadd{g_E = f_{GM}(\{N_{i} | i = 31, ..., 50\})
+}\end{equation}
+
+\begin{equation}
+\DIFadd{g_M = f_{GM}(\{N_{i} | i = 81, ..., 100\})
+}\end{equation}
+
+\begin{equation}
+\DIFadd{g_R = f_{GM}(\{N_{i} | i = 131, ..., 150\})
+}\end{equation}
+
+\DIFadd{where $g_{F}$, $g_{E}$, $g_{M}$, and $g_{R}$ are geometric medians }\DIFaddend for fixation, \DIFdelbegin \DIFdel{$\mathrm{g_{E}}$ for encoding, $\mathrm{g_{M}}$ for }\DIFdelend \DIFaddbegin \DIFadd{encoding, }\DIFaddend maintenance, and \DIFdelbegin \DIFdel{$\mathrm{g_{R}}$ for retrieval phase)were calculated by determining the median coordinates of the NT during }\DIFdelend \DIFaddbegin \DIFadd{retrieval phases, respectively; $f_{GM}$ is the function to calculate geometric median (using the Python geom\_median package (}\url{https://github.com/krishnap25/geom_median?tab=readme-ov-file}\DIFadd{). \mbox{%DIFAUXCMD
+\cite{pillutla:etal:rfa}}\hspace{0pt}%DIFAUXCMD
+); and $N_{i}$ is the $i^{th}$ NT coordinate, calculated from 50-ms unit activity data.
+}
+
+\DIFadd{It is noteworthy that geometric median is calculated by minimizing the sum of distances to the sample points:
+%DIF > % the geometric median of $x_1, \dots, x_n \in \mathbb{R}^d$ is defined as
+}\begin{equation}
+\DIFadd{x_{GM} = \arg\min_{z \in \mathbb{R}^d} \sum_{i=1}^n \|z - x_i\|_2.
+}\end{equation}
+
+%DIF > % For each NT within an ROI, the geometric median (or also known the Fermat point, Weber's L1 median, Fréchet median, and so on) of the middle 1 second of each phase was calculated and assigned as $\mathrm{g_{F}}$ for the fixation phase, $\mathrm{g_{E}}$ for the encoding phase, $\mathrm{g_{M}}$ for the maintenance phase, and $\mathrm{g_{R}}$ for the retrieval phase. The calculation of geometric medians was performed using the Python geom\_median package (\url{https://github.com/krishnap25/geom_median?tab=readme-ov-file}). \cite{pillutla:etal:rfa} Specifically,
+%DIF > % the geometric median of $x_1, \dots, x_n \in \mathbb{R}^d$ is defined as
+%DIF > % $x_{GM} = \arg\min_{z \in \mathbb{R}^d} \sum_{i=1}^n \|z - x_i\|_2$.
+%DIF > % \\
+\indent
+%DIF > % \subsection{Topological Data Analysis}
+%DIF > % Geometric medians were considered as the centroid of each class of samples. From these centroids, radii were incrementally increased, and the number of "holes" was counted in response to the radius. This process generates barcode plots to evaluate the stability of each state and persistent homology.
+%DIF > % \\
+\indent
+\subsection{\DIFadd{Classification of NT Phases Using a Linear SVM Classifier}}
+\DIFadd{A linear support vector machine classifier was applied to NT data from each session to classify }\DIFaddend the four phases \DIFdelbegin \DIFdel{. An optimal GPFA dimensionality was found to be three using the elbow method obtained by examining the log-likelihood values through a }\DIFdelend \DIFaddbegin \DIFadd{of the task: Fixation, Encoding, Maintenance, and Retrieval, in a supervised manner. Evaluation was conducted using the }\DIFaddend three-fold cross-validation \DIFdelbegin \DIFdel{approach (Figure~\ref{fig:02}B).
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{method. The classification tasks were also conducted under specific conditions---set size (4, 6, or 8) and task type (Match IN and Mismatch OUT)---as well as an entire session with 50 trials.
 }\\
 \indent
-\DIFaddend For each NT within a region such as AHL, \DIFdelbegin \DIFdel{geometric medians }\DIFdelend \DIFaddbegin \DIFadd{the geometric median of each phase was calculated }\DIFaddend ($\mathrm{g_{F}}$ for fixation, $\mathrm{g_{E}}$ for encoding, $\mathrm{g_{M}}$ for maintenance, and $\mathrm{g_{R}}$ for retrieval phase)\DIFdelbegin \DIFdel{were calculated by determining the median coordinates of the NT during the four phases. An optimal GPFA dimensionality was found to be three using the elbow method obtained by examining the log-likelihood values through a three-fold cross-validation approach (Figure~\ref{fig:02}B)}\DIFdelend \DIFaddbegin \DIFadd{. In this paper, these geometric medians will also be referred to as "states"}\DIFaddend .
-
-\subsection{Identifying SWR candidates from hippocampal regions}
+\DIFaddend \subsection{Identifying SWR candidates from hippocampal regions}
 Potential SWR events within the hippocampus were detected using a widely used method \cite{liu_consensus_2022}. LFP signals from a region of interest (ROI) like AHL, were re-referenced by deducting the averaged signal from locations outside the ROI (for instance, AHR, PHL, PHR, ECL, ECR, AL, and AR). The re-referenced LFP signals were then filtered with a ripple-band filter (80--140 Hz) to determine SWR candidates, marked as $\textrm{SWR}^+$ candidates. SWR detection was carried out using a published tool (\url{https://github.com/Eden-Kramer-Lab/ripple_detection}) \cite{kay_hippocampal_2016}, with the bandpass range adjusted to 80--140 Hz for humans \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
 \cite{norman_hippocampal_2019} }\hspace{0pt}%DIFAUXCMD
 \mbox{%DIFAUXCMD
@@ -461,7 +609,9 @@ $\textrm{SWR}^+/\textrm{SWR}^-$ candidates in these predetermined CA1 regions we
 \subsection{Statistical Evaluation}
 Both the Brunner--Munzel test and the Kruskal-Wallis test were executed using the SciPy package in Python \cite{virtanen_scipy_2020}. Correlational analysis was conducted by determining the rank of the observed correlation coefficient within its associated set-size-shuffled surrogate using a customized Python script. The bootstrap test was implemented with an in-house Python script.
 \label{sec:methods}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DIFaddbegin 
+
+\DIFaddend %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% RESULTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
@@ -474,7 +624,22 @@ Figure~\ref{fig:02}A exhibits a distribution of median NTs, comprising 50 trials
 \indent
 Similarly, we computed the distances between the geometric medians of four phases, namely $\mathrm{\lVert g_{F}g_{E} \rVert}$, $\mathrm{\lVert g_{F}g_{M} \rVert}$, $\mathrm{\lVert g_{F}g_{R} \rVert}$, $\mathrm{\lVert g_{E}g_{M} \rVert}$, $\mathrm{\lVert g_{E}g_{R} \rVert}$, and $\mathrm{\lVert g_{M}g_{R} \rVert}$. The hippocampus showed larger distances between phases than those in the EC and amygdala. \footnote{Hippocampus: Distance = 0.60 [0.70], median [IQR], \textit{n} = 8,772 combinations; EC: Distance = 0.28 [0.52], median [IQR], \textit{n} = 5,017 combinations (\textit{p} $<$ 0.01; Brunner--Munzel test); Amygdala: Distance = 0.24 [0.42], median [IQR], \textit{n} = 7,466 combinations (\textit{p} $<$ 0.01; Brunner--Munzel test).}
 
-\subsection{Memory-Load-Dependent NT Distance between Encoding and Retrieval States in the Hippocampus}
+
+\DIFaddbegin \subsection{\DIFadd{The Existance of Memory States in NT}}
+\DIFadd{Here, we examined whether NT representations linearly depict memory states across the four phases. To achieve this, we utilized two methodologies: topological data analysis (TDA) and machine learning classification.
+}\\
+\indent
+\DIFadd{First, geometric medians were treated as centroids for phases and the number of holes were calculated using the TDA.
+}\\
+\indent
+\DIFadd{Second,
+}\\
+\indent
+\DIFadd{Together, these results provide compelling evidence for the existence of memory states in NT, as revealed by both TDA and ML classification.
+}
+
+
+\DIFaddend \subsection{Memory-Load-Dependent NT Distance between Encoding and Retrieval States in the Hippocampus}
 Regarding memory load in the Sternberg task, we observed a negative correlation between the correct rate of trials and the set size, which denotes the number of letters to be encoded (Figure~\ref{fig:03}A).\footnote{Correct rate: set size four (0.99 \textpm 0.11, mean \textpm SD; \textit{n} = 333 trials) vs. set size six (0.93 \textpm 0.26; \textit{n} = 278 trials; \textit{p} $<$ 0.001, Brunner--Munzel test with Bonferroni correction) and set size eight (0.87 \textpm 0.34; \textit{n} = 275 trials; \textit{p} $<$ 0.05; Brunner--Munzel test with Bonferroni correction). Generally, \textit{p} $<$ 0.001 for Kruskal--Wallis test; correlation coefficient = - 0.20, \textit{p} $<$ 0.001.} Concomitantly, a positive correlation was noted between the response time and set size (Figure~\ref{fig:03}B).\footnote{Response time: set size four (1.26 \textpm 0.45 s; \textit{n} = 333 trials) vs. set size six (1.53 \textpm 0.91 s; \textit{n} = 278 trials) and set size eight (1.66 \textpm 0.80 s; \textit{n} = 275 trials). All comparisons \textit{p} $<$ 0.001, Brunner--Munzel test with Bonferroni correction; \textit{p} $<$ 0.001 for Kruskal--Wallis test; correlation coefficient = 0.22, \textit{p} $<$ 0.001}.
 \\
 \indent
@@ -602,7 +767,7 @@ in the hippocampus, and SWR amplitude and duration \mbox{%DIFAUXCMD
 \DIFaddbegin 
 
 
-%DIF > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%DIF > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %DIF > % DATA AVAILABILITY
 %DIF > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pdfbookmark[1]{Data Availability Statement}{data_availability}
@@ -813,10 +978,10 @@ The table provides statistics of presumptive CA1 regions and SWR events. Only th
         \begin{figure*}[ht]
             \pdfbookmark[2]{ID 01}{figure_id_01}
         	\centering
-            \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\textwidth]{./src/figures/.png/Figure_ID_01.png}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\textwidth]{./src/figures/.png/Figure_ID_01.png}
 %DIFDELCMD <         	%%%
-\DIFdelendFL \DIFaddbeginFL \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_01.png}
-        	\DIFaddendFL \caption{\textbf{
+\DIFdelendFL %DIF >             \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_01.png}
+        	\caption{\textbf{
 Local Field Potentials, Multiunit Activity, and Neural Trajectories in the Hippocampus During a Modified Sternberg Task
 }
 \smallskip
@@ -830,10 +995,10 @@ Local Field Potentials, Multiunit Activity, and Neural Trajectories in the Hippo
         \begin{figure*}[ht]
             \pdfbookmark[2]{ID 02}{figure_id_02}
         	\centering
-            \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.5\textwidth]{./src/figures/.png/Figure_ID_02.png}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.5\textwidth]{./src/figures/.png/Figure_ID_02.png}
 %DIFDELCMD <         	%%%
-\DIFdelendFL \DIFaddbeginFL \includegraphics[width=0.5\textwidth]{./src/figures/png/Figure_ID_02.png}
-        	\DIFaddendFL \caption{\textbf{
+\DIFdelendFL %DIF >             \includegraphics[width=0.5\textwidth]{./src/figures/png/Figure_ID_02.png}
+        	\caption{\textbf{
 State-Dependent Neural Trajectory of Hippocampal Neurons
 }
 \smallskip
@@ -847,10 +1012,10 @@ State-Dependent Neural Trajectory of Hippocampal Neurons
         \begin{figure*}[ht]
             \pdfbookmark[2]{ID 03}{figure_id_03}
         	\centering
-            \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\textwidth]{./src/figures/.png/Figure_ID_03.png}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\textwidth]{./src/figures/.png/Figure_ID_03.png}
 %DIFDELCMD <         	%%%
-\DIFdelendFL \DIFaddbeginFL \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_03.png}
-        	\DIFaddendFL \caption{\textbf{
+\DIFdelendFL %DIF >             \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_03.png}
+        	\caption{\textbf{
 Positive Correlation between Memory Load and Neural Trajectory Distance in the Hippocampus between Encoding and Retrieval Phases
 }
 \smallskip
@@ -864,10 +1029,10 @@ Positive Correlation between Memory Load and Neural Trajectory Distance in the H
         \begin{figure*}[ht]
             \pdfbookmark[2]{ID 04}{figure_id_04}
         	\centering
-            \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\textwidth]{./src/figures/.png/Figure_ID_04.png}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\textwidth]{./src/figures/.png/Figure_ID_04.png}
 %DIFDELCMD <         	%%%
-\DIFdelendFL \DIFaddbeginFL \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_04.png}
-        	\DIFaddendFL \caption{\textbf{Detection of SWRs in Putative CA1 Regions}\\
+\DIFdelendFL %DIF >             \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_04.png}
+        	\caption{\textbf{Detection of SWRs in Putative CA1 Regions}\\
 \textbf{\textit{A.}} Two-dimensional UMAP \cite{mcinnes_umap_2018} projection displays multi-unit spikes during SWR$^+$ candidates (\textit{purple}) and SWR$^-$ candidates (\textit{yellow}). \textbf{\textit{B.}} A cumulative density plot indicates silhouette scores, reflecting UMAP clustering quality (see Table~\ref{tab:02}). Hippocampal regions with silhouette scores exceeding 0.60 (equivalent to the $75^{th}$ percentile) are identified as putative CA1 regions. SWR$^+$ and SWR$^-$ candidates, which were recorded from these regions, are classified as SWR$^+$ and SWR$^-$ respectively (\textit{n}s = 1,170). \textbf{\textit{C.}} Identical distributions of \DIFdelbeginFL \DIFdelFL{durations are presented for }\DIFdelendFL SWR$^+$ (\textit{purple}) and SWR$^-$ (\textit{yellow}) \DIFaddbeginFL \DIFaddFL{distributions}\DIFaddendFL , based on their definitions (93.0 [65.4] ms, median [IQR]). \DIFaddbeginFL \DIFaddFL{Note that these distributions exhibit log-normality. }\DIFaddendFL \textbf{\textit{D.}} \DIFaddbeginFL \DIFaddFL{Identical }\DIFaddendFL SWR incidence for both SWR$^+$ (\textit{purple}) and SWR$^-$ (\textit{yellow}), relative to the probe's timing \DIFdelbeginFL \DIFdelFL{, is illustrated as a }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{(}\DIFaddendFL mean \textpm 95\% confidence interval\DIFaddbeginFL \DIFaddFL{)}\DIFaddendFL . However, \DIFdelbeginFL \DIFdelFL{intervals }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{95\% confidence interval }\DIFaddendFL may not be visibly apparent due to their \DIFdelbeginFL \DIFdelFL{confined }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{narrow }\DIFaddendFL ranges\DIFdelbeginFL \DIFdelFL{, be aware }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{. Note }\DIFaddendFL that a significant SWR incidence increase was detected during the initial 400 ms of the retrieval phase (0.421 [Hz], *\textit{p} $<$ 0.05, bootstrap test). \textbf{\textit{E.}} Distributions of ripple band peak amplitudes for SWR$^-$ (\textit{yellow}; 2.37 [0.33] SD of baseline, median [IQR]) and SWR$^+$ (\textit{purple}; 3.05 [0.85] SD of baseline, median [IQR]) are manifested (***\textit{p} $<$ 0.001, the Brunner--Munzel test). \DIFaddbeginFL \DIFaddFL{Note the log-normality for SWR$^+$ events.}\DIFaddendFL }
 % width=1\textwidth
         	\label{fig:04}
@@ -876,10 +1041,10 @@ Positive Correlation between Memory Load and Neural Trajectory Distance in the H
         \begin{figure*}[ht]
             \pdfbookmark[2]{ID 05}{figure_id_05}
         	\centering
-            \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\textwidth]{./src/figures/.png/Figure_ID_05.png}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=1\textwidth]{./src/figures/.png/Figure_ID_05.png}
 %DIFDELCMD <         	%%%
-\DIFdelendFL \DIFaddbeginFL \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_05.png}
-        	\DIFaddendFL \caption{\textbf{Transient Change in Neural Trajectory during SWR}
+\DIFdelendFL %DIF >             \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_05.png}
+        	\caption{\textbf{Transient Change in Neural Trajectory during SWR}
 \smallskip
 \\
 \textbf{\textit{A.}} The distance from origin ($O$) of the peri-sharp-wave-ripple neural trajectory (mean \textpm 95\% confidence interval). The intervals may be obscured due to their minimal ranges. \textbf{\textit{B.}} The distance from the origin ($O$) during the pre-, mid-, and post-SWR periods is demonstrated (*\textit{p} $<$ 0.05, **\textit{p} $<$ 0.01, ***\textit{p} $<$ 0.001; Brunner--Munzel test applied). Abbreviations: SWR, sharp-wave ripple events; eSWR, SWR during the encoding phase; rSWR, SWR within the retrieval phase; SWR$^+$, positive SWR event; SWR$^-$, control events for SWR$^+$; pre-, mid-, or post-SWR refer to the time intervals from $-800$ to $-250$ ms, from $-250$ to $+250$ ms, or from $+250$ to $+800$ ms, respectively, all relative to the SWR center.}
@@ -918,10 +1083,10 @@ Positive Correlation between Memory Load and Neural Trajectory Distance in the H
 %DIFDELCMD <             %%%
 \DIFdelendFL \pdfbookmark[2]{ID 07}{figure_id_07}
         	\centering
-            \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.5\textwidth]{./src/figures/.png/Figure_ID_07.png}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.5\textwidth]{./src/figures/.png/Figure_ID_07.png}
 %DIFDELCMD <         	%%%
-\DIFdelendFL \DIFaddbeginFL \includegraphics[width=0.5\textwidth]{./src/figures/png/Figure_ID_07.png}
-        	\DIFaddendFL \caption{\textbf{
+\DIFdelendFL %DIF >             \includegraphics[width=0.5\textwidth]{./src/figures/png/Figure_ID_07.png}
+        	\caption{\textbf{
 Direction of Neural Trajectory During SWR Based on Encoding and Retrieval States
 }
 \smallskip
@@ -937,3 +1102,4 @@ Direction of Neural Trajectory During SWR Based on Encoding and Retrieval States
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
+\endinput

@@ -190,7 +190,7 @@ main "$@"
 
 # gather_figures "$@"
 
-# ./.scripts/sh/.figures.sh --no-figs # this does not work. why?
+# ./scripts/sh/modules/figures.sh --no-figs # this does not work. why?
 # cat ./src/figures/.tex/.All_Figures.tex
 # cat ./src/figures/tex/Figure_ID_01.tex
 

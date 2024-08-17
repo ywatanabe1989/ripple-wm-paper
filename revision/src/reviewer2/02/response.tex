@@ -2,16 +2,19 @@
 % Major comments:
 % - Defining 'encoding' and 'retrieval' states requires a careful, complete, and clear analysis. From Fig.2, it seems that NT points are scattered and do not have stable 'states'. This could be a major flaw of the study, since the 'transition between states' could be no longer valid. To define states, authors would need to explicitly show that points that belong to 'encoding' and 'retrieval' phases are clustered in different regions of the state space and have small overlap.
 
-% Clear definition of the term ’state’ is needed, together with additional analysis to show their existence. 
+% Clear definition of the term ’state’ is needed, together with additional analysis to show their existence.
 \authorText{
-Thank you for your comments regarding the definitions of states. We would like to respond in the following three dimensions.\\
+We appreciate your critical comments regarding the definitions of states. We used the term 'state' to describe NT point clouds (coordinates or distribution) during each phase as a whole, without addressing state stability. Thanks to your comment, we recognize the potential risk of misleading readers. Consequently, we have revised our manuscript in several aspects.\\
 \\
-First, the definition of "states" should have been clarified. In the current study, "states" are equivalent to the median coordinate of NTs for a session (= 50 trials) in the corresponding phase ($\mathrm{g_{F}}$ for fixation, $\mathrm{g_{E}}$ for encoding, $\mathrm{g_{M}}$ for maintenance, and $\mathrm{g_{R}}$ for retrieval phase). The choice of the median, rather than the mean, for example, is due to concerns about the significant effects of outliers and the need to find a stable metric, which aligns with your point.\\
+First, we defined states as NT distributions during a phase in the method section. It is noteworthy that we do not focus on how stable, distinguishable from other states, or the ratio of between-group to within-group variances these states are. This is mainly because NTs, calculated by GPFA, are optimized to smoothly connect trajectories rather than maximize separation between phases.\\
 \\
-Second, Figure~\ref{fig:02}A was constructed using data from Subject \#6, Session \#2, encompassing all 50 trials. The point here is that trials here include the following six different conditions: memory load (4, 6, and 8) and task type (Match IN versus Mismatch OUT). Thus, the instability of the scatter plots in Figure~\ref{fig:02}A might not be invalid. To check the effects of these merged conditions, we scatter-plotted NTs for each condition separately. [FIXME ->][<- FIXME]\\
+Nevertheless, we assessed whether the four phases are linearly distinguishable in NT spaces to discuss the meaning of distances and directions. We used a support vector machine classifier (SVC) in a self-supervised manner with cross-validation. The balanced accuracy of the classification was [fixme ->] XXX [<- fixme], which was above chance level.\\
 \\
-Lastly, to quantify this, we checked whether the four phases are linearly distinguishable in these spaces using a support vector machine classifier (SVC) in a self-supervised manner with cross-validation methods. The balanced accuracy of the classification was XXX, which was above the chance level. Thus, while we are uncertain about how concentrated and segregated each state should be, we believe the median values have the representative metrics for each phase.\\
+Additionally, to confirm whether the NT points include phase-correlated characteristics, we transformed the NT spaces into supervised UMAP spaces using phase labels. The results show the silhouette score, a clustering performance measure, revealed significant differences. While it might be interesting to work on these UMAP spaces, the challenge in interpreting directions and distances in such non-linear transformation led us to adhere to NT spaces in this work.\\
 \\
-Considering all factors, irrespective of the "stability of states", we assert that our findings continue to be valid. In light of these considerations, we have accordingly updated our manuscript:\\
+Finally, we realized Figure~\ref{fig:02}A was constructed using multiple experimental conditions: data from Subject #6, Session #2, encompassing all 50 trials with six different conditions (memory load: 4, 6, and 8; task type: Match IN versus Mismatch OUT). Moreover, recognizing the difficulty in interpreting three-dimensional plots in print, we have scatter-plotted NTs for each condition in two-dimensional spaces. We have now separately plotted NTs for these six conditions, which shows different NT distributions across phases.\\
+\\
+Considering these factors, we believe our findings of "transition between 'soft' states" maintain their validity, even without the requirement of state stability. Accordingly, we have updated our manuscript as follows:
 }
 
+%% 2. The response could benefit from a clearer definition of "state" as requested by the reviewer.

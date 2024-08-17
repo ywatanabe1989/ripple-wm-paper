@@ -4,8 +4,8 @@ function compile_main_tex() {
     echo -e "\nCompiling ./main.tex..."
 
     # compile tables and figures
-    ./.scripts/sh/.tables.sh
-    ./.scripts/sh/.figures.sh $no_figs
+    ./scripts/sh/modules/tables.sh
+    ./scripts/sh/modules/figures.sh $no_figs
 
     # Main
     yes '' | pdflatex -shell-escape ./main.tex >/dev/null # this wil problematic sometimes
@@ -14,12 +14,12 @@ function compile_main_tex() {
     yes '' | pdflatex -shell-escape ./main.tex >/dev/null
 
     # Rename
-    mv main.pdf compiled.pdf
+    cp main.pdf manuscript.pdf
 }
 
 no_figs=${1:-default_value}
-compile_main_tex 
+compile_main_tex
 
-# ./.scripts/sh/.compile_main.tex.sh --no-figs
+# ./scripts/sh/modules/compile_main.tex.sh --no-figs
 
 ## EOF

@@ -6,7 +6,7 @@
 import os
 import sys
 
-sys.path.append("./.scripts/py/")
+sys.path.append("./scripts/py/")
 from utils import ChatGPT, load_tex, back_up, save_tex
 
 
@@ -71,4 +71,4 @@ if __name__ == "__main__":
 
     revise_by_GPT(args.lpath)
 
-    # python ./.scripts/_revise_by_GPT.py -l ./src/abstract.tex
+    # python ./scripts/_revise_by_GPT.py -l ./src/abstract.tex

@@ -14,13 +14,13 @@ else
 fi
 
 # Run the PowerShell script
-powershell.exe -ExecutionPolicy Bypass -File "$(wslpath -w ./.scripts/ps1/pptx2tiff.ps1)" -inputFilePath "$inputFilePathWin" -outputFilePath "$outputFilePathWin"
+powershell.exe -ExecutionPolicy Bypass -File "$(wslpath -w ./scripts/ps1/pptx2tiff.ps1)" -inputFilePath "$inputFilePathWin" -outputFilePath "$outputFilePathWin"
 
 
 if [ -n "$inputFilePath" ]; then
    echo -e "\nConverted: ${inputFilePath} -> ${inputFilePath%.pptx}.tif"
 fi
 
-# ./.scripts/sh/.pptx2tif.sh src/figures/Figure_ID_01.pptx
+# ./scripts/sh/modules/pptx2tif.sh src/figures/Figure_ID_01.pptx
 
 ## EOF
