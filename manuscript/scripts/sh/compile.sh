@@ -52,6 +52,14 @@ log_command() {
     echo_splitter
 }
 
+
+clear_main_directory() {
+    # Usage: clear_main_directory
+    for f in main.pdf diff.pdf manuscript.pdf manuscript.tex diff.tex; do
+        rm ./main/$f 2>/dev/null
+    done
+}
+
 run_checks() {
     echo_splitter
     ./scripts/sh/modules/check.sh
@@ -99,9 +107,9 @@ count_words_figures_tables() {
 compile_main_tex() {
     echo_splitter
     if $no_figs; then
-        ./scripts/sh/modules/compile_main.tex.sh --no-figs
+        ./scripts/sh/modules/compile_main_tex.sh --no-figs
     else
-        ./scripts/sh/modules/compile_main.tex.sh
+        ./scripts/sh/modules/compile_main_tex.sh
     fi
     echo_splitter
 }
@@ -185,7 +193,6 @@ main() {
     generate_compiled_tex
     generate_diff_tex
     compile_diff_tex
-    # generate_and_compile_diff
     cleanup
     versioning
     print_success

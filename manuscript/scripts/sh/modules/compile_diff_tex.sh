@@ -13,6 +13,8 @@ function compile_diff_tex() {
         yes '' | pdflatex -shell-escape $input_diff_tex >/dev/null
         yes '' | pdflatex -shell-escape $input_diff_tex >/dev/null
 
+        mv ./diff.pdf ./main/diff.pdf
+
         if [ -f $output_diff_pdf ]; then
             echo -e "\n\033[1;33mCompiled: $output_diff_pdf\033[0m"
         fi

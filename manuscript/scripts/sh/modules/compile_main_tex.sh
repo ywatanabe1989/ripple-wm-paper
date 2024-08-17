@@ -15,6 +15,8 @@ function compile_main_tex() {
     yes '' | pdflatex -shell-escape ./main/main.tex >/dev/null
     yes '' | pdflatex -shell-escape ./main/main.tex >/dev/null
 
+    mv ./main.pdf ./main/main.pdf
+
     # Rename
     cp ./main/main.pdf ./main/manuscript.pdf
 }
