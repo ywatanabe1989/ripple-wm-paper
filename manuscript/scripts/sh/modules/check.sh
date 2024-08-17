@@ -10,6 +10,6 @@ function check_commands() {
 }
 
 check_commands pdflatex bibtex xlsx2csv csv2latex
-chktex -v0 ./main.tex > ./.logs/syntax_warnings.log 2>&1
+chktex -v0 ./manuscript.tex > ./.logs/syntax_warnings.log 2>&1
 
 ## EOF

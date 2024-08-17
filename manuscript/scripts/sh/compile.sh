@@ -44,7 +44,6 @@ log_command() {
          $(if $do_p2t; then echo "--ppt2tif "; fi) \
          $(if $do_insert_citations; then echo "--citations "; fi) \
          $(if $no_figs; then echo "--no-figs"; fi)
-    echo
 }
 
 run_checks() {
@@ -88,7 +87,7 @@ compile_main_tex() {
 }
 
 generate_compiled_tex() {
-    ./scripts/sh/modules/gen_manuscript.tex.sh
+    ./scripts/sh/modules/gen_compiled.tex.sh
 }
 
 generate_and_compile_diff() {
@@ -255,9 +254,9 @@ main "$@" 2>&1 | tee "$LOG_FILE"
 
 #     # Main
 #     if $no_figs; then
-#         ./scripts/sh/modules/compile_main.tex.sh --no-figs
+#         ./scripts/sh/modules/compile_manuscript.tex.sh --no-figs
 #     else
-#         ./scripts/sh/modules/compile_main.tex.sh
+#         ./scripts/sh/modules/compile_manuscript.tex.sh
 #     fi
 
 #     ./scripts/sh/modules/gen_manuscript.tex.sh # -> manuscript.tex

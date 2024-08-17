@@ -1,7 +1,7 @@
 .
 ├── bibliography.bib
 ├── config
-├── main.tex
+├── manuscript.tex
 └── src
     ├── abstract.tex
     ├── additional_info.tex

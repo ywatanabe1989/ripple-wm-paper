@@ -85,9 +85,9 @@ LOG_FILE="./.logs/compile.log"
 
     # Main
     if $no_figs; then
-        ./scripts/sh/modules/compile_main.tex.sh --no-figs
+        ./scripts/sh/modules/compile_manuscript.tex.sh --no-figs
     else
-        ./scripts/sh/modules/compile_main.tex.sh
+        ./scripts/sh/modules/compile_manuscript.tex.sh
     fi
 
     ./scripts/sh/modules/gen_manuscript.tex.sh # -> manuscript.tex

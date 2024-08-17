@@ -19,7 +19,7 @@ $ ./.scripts/sh/gen_pyenv.sh
 
 To create your manuscript, modify the following files:
 - Bibliography: [`./bibliography.bib`](./bibliography.bib)
-- Main document: [`./main.tex`](./main.tex)
+- Main document: [`./manuscript.tex`](./manuscript.tex)
 - Manuscript sections: [`./src/`](./src/)
 - ChatGPT configuration: [`./config/`](./config/)
 
@@ -55,7 +55,7 @@ The project's structure is outlined in [`./.tree.txt`](./.tree.txt), which is au
 
 - `bibliography.bib`: The bibliography file
 - `config/`: Configuration files for ChatGPT
-- `main.tex`: The primary LaTeX file
+- `manuscript.tex`: The primary LaTeX file
 - `src/`: Sections of the manuscript and figures
 
 ## Support
