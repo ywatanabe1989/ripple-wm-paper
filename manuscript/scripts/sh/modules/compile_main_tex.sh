@@ -11,7 +11,7 @@ function compile_main_tex() {
 
     # Main
     yes '' | pdflatex -shell-escape ./main/main.tex >/dev/null # this wil problematic sometimes
-    bibtex main 2>&1 >/dev/null | grep -E "Warning|Error"
+    bibtex main >/dev/null
     yes '' | pdflatex -shell-escape ./main/main.tex >/dev/null
     yes '' | pdflatex -shell-escape ./main/main.tex >/dev/null
 

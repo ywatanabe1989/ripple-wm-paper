@@ -1,7 +1,7 @@
 \UseRawInputEncoding
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL ./old/compiled_vXXX_submitted_base.tex   Fri May 24 09:29:57 2024
-%DIF ADD ./main/manuscript.tex                    Sat Aug 17 19:45:06 2024
+%DIF ADD ./main/manuscript.tex                    Sat Aug 17 19:56:14 2024
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% SETTINGS
@@ -501,8 +501,58 @@ NTs, also referred to as 'factors', in the hippocampus, EC, and amygdala were de
 
 
 
+
+%DIF > % \subsection{Defining Phase States}
+%DIF > % States of phases were defined as the NT (8 s with 160 x 50-ms bins) during phases:
+
+%DIF > % \begin{equation}
+%DIF > % S_F = \{N_{i} | i = 1, ..., 20\}
+%DIF > % \end{equation}
+
+%DIF > % \begin{equation}
+%DIF > % S_E = \{N_{i} | i = 21, ..., 60\}
+%DIF > % \end{equation}
+
+%DIF > % \begin{equation}
+%DIF > % S_M = \{N_{i} | i = 61, ..., 120\}
+%DIF > % \end{equation}
+
+%DIF > % \begin{equation}
+%DIF > % S_R = \{N_{i} | i = 121, ..., 160\}
+%DIF > % \end{equation}
+
+
+%DIF > % where $S_F$ is the state of fixation, $S_E$ is encoding, $S_M$ is maintenance, and $S_R$ is retrieval; $N_{i}$ is the $i^{th}$ NT coordinate.
+
+%DIF > % \subsection{Geometric Medians of States}
+%DIF > % From the middle 1 second (= 20 x 50-ms bins) of each state, the geometric median was calculated:
+
+%DIF > % \begin{equation}
+%DIF > % g_F = f_{GM}(\{N_{i} | i = 1, ..., 20\})
+%DIF > % \end{equation}
+
+%DIF > % \begin{equation}
+%DIF > % g_E = f_{GM}(\{N_{i} | i = 31, ..., 50\})
+%DIF > % \end{equation}
+
+%DIF > % \begin{equation}
+%DIF > % g_M = f_{GM}(\{N_{i} | i = 81, ..., 100\})
+%DIF > % \end{equation}
+
+%DIF > % \begin{equation}
+%DIF > % g_R = f_{GM}(\{N_{i} | i = 131, ..., 150\})
+%DIF > % \end{equation}
+
+%DIF > % where $g_{F}$, $g_{E}$, $g_{M}$, and $g_{R}$ are geometric medians for fixation, encoding, maintenance, and retrieval phases, respectively; $f_{GM}$ is the function to calculate geometric median (using the Python geom\_median package (\url{https://github.com/krishnap25/geom_median?tab=readme-ov-file}). \cite{pillutla:etal:rfa}); and $N_{i}$ is the $i^{th}$ NT coordinate, calculated from 50-ms unit activity data.
+
+%DIF > % It might be noteworthy that geometric median is calculated by minimizing the sum of distances to the sample points:
+
+%DIF > % \begin{equation}
+%DIF > % x_{GM} = \arg\min_{z \in \mathbb{R}^d} \sum_{i=1}^n \|z - x_i\|_2.
+%DIF > % \end{equation}
+
 \subsection{\DIFadd{Defining Phase States}}
-\DIFadd{States of phases were defined as the NT during phases:
+\DIFadd{Phase states were defined as the neural trajectory (NT) during each phase of the 8-s task, comprising 160 x 50-ms bins:
 }
 
 \begin{equation}
@@ -521,12 +571,11 @@ NTs, also referred to as 'factors', in the hippocampus, EC, and amygdala were de
 \DIFadd{S_R = \{N_{i} | i = 121, ..., 160\}
 }\end{equation}
 
-
-\DIFadd{where $S_F$ is the state of fixation, $S_E$ is encoding, $S_M$ is maintenance, and $S_R$ is retrieval; $N_{i}$ is the $i^{th}$ NT coordinate, calculated from 50-ms unit activity data.
+\DIFadd{where $S_F$, $S_E$, $S_M$, and $S_R$ represent the states of fixation, encoding, maintenance, and retrieval, respectively; $N_{i}$ is the $i^{th}$ NT coordinate.
 }
 
 \subsection{\DIFadd{Geometric Medians of States}}
-\DIFadd{From the middle 1 second (= 20 x 50-ms bins) of each state, the geometric median was calculated:
+\DIFadd{The geometric median was calculated from the middle 1 s (20 x 50-ms bins) of each state:
 }
 
 \begin{equation}
@@ -545,14 +594,15 @@ NTs, also referred to as 'factors', in the hippocampus, EC, and amygdala were de
 \DIFadd{g_R = f_{GM}(\{N_{i} | i = 131, ..., 150\})
 }\end{equation}
 
-\DIFadd{where $g_{F}$, $g_{E}$, $g_{M}$, and $g_{R}$ are geometric medians }\DIFaddend for fixation, \DIFdelbegin \DIFdel{$\mathrm{g_{E}}$ for encoding, $\mathrm{g_{M}}$ for }\DIFdelend \DIFaddbegin \DIFadd{encoding, }\DIFaddend maintenance, and \DIFdelbegin \DIFdel{$\mathrm{g_{R}}$ for retrieval phase)were calculated by determining the median coordinates of the NT during }\DIFdelend \DIFaddbegin \DIFadd{retrieval phases, respectively; $f_{GM}$ is the function to calculate geometric median (using the Python geom\_median package (}\url{https://github.com/krishnap25/geom_median?tab=readme-ov-file}\DIFadd{). \mbox{%DIFAUXCMD
+\DIFadd{where $g_{F}$, $g_{E}$, $g_{M}$, and $g_{R}$ are geometric medians }\DIFaddend for fixation, \DIFdelbegin \DIFdel{$\mathrm{g_{E}}$ for encoding, $\mathrm{g_{M}}$ for }\DIFdelend \DIFaddbegin \DIFadd{encoding, }\DIFaddend maintenance, and \DIFdelbegin \DIFdel{$\mathrm{g_{R}}$ for retrieval phase) were calculated by determining the median coordinates of the NT during }\DIFdelend \DIFaddbegin \DIFadd{retrieval phases, respectively; $f_{GM}$ is the function to calculate geometric median using the Python geom\_median package (}\url{https://github.com/krishnap25/geom_median?tab=readme-ov-file}\DIFadd{) \mbox{%DIFAUXCMD
 \cite{pillutla:etal:rfa}}\hspace{0pt}%DIFAUXCMD
-); and $N_{i}$ is the $i^{th}$ NT coordinate, calculated from 50-ms unit activity data.
+; and $N_{i}$ is the $i^{th}$ NT coordinate, calculated from 50-ms unit activity data.
 }
 
-\DIFadd{It is noteworthy that geometric median is calculated by minimizing the sum of distances to the sample points:
-%DIF > % the geometric median of $x_1, \dots, x_n \in \mathbb{R}^d$ is defined as
-}\begin{equation}
+\DIFadd{The geometric median is calculated by minimizing the sum of distances to the sample points:
+}
+
+\begin{equation}
 \DIFadd{x_{GM} = \arg\min_{z \in \mathbb{R}^d} \sum_{i=1}^n \|z - x_i\|_2.
 }\end{equation}
 
@@ -566,7 +616,7 @@ NTs, also referred to as 'factors', in the hippocampus, EC, and amygdala were de
 %DIF > % \\
 \indent
 \subsection{\DIFadd{Classification of NT Phases Using a Linear SVM Classifier}}
-\DIFadd{A linear support vector machine classifier was applied to NT data from each session to classify }\DIFaddend the four phases \DIFdelbegin \DIFdel{. An optimal GPFA dimensionality was found to be three using the elbow method obtained by examining the log-likelihood values through a }\DIFdelend \DIFaddbegin \DIFadd{of the task: Fixation, Encoding, Maintenance, and Retrieval, in a supervised manner. Evaluation was conducted using the }\DIFaddend three-fold cross-validation \DIFdelbegin \DIFdel{approach (Figure~\ref{fig:02}B).
+\DIFadd{A linear support vector machine classifier was applied to NT data from each session to classify }\DIFaddend the four phases \DIFdelbegin \DIFdel{. An optimal GPFA dimensionality was found to be three using the elbow method obtained by examining the log-likelihood values through a }\DIFdelend \DIFaddbegin \DIFadd{of the task: Fixation, Encoding, Maintenance, and Retrieval, in a supervised manner. Evaluation was conducted using the }\DIFaddend three-fold cross-validation \DIFdelbegin \DIFdel{approach (Figure~\ref{fig:02}B) .
 }%DIFDELCMD < 
 
 %DIFDELCMD < %%%
