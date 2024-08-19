@@ -21,7 +21,7 @@ function csv2tex() {
     mkdir -p $csv_dir $output_dir > /dev/null
 
     ii=0
-    for csv_file in "$csv_dir"*.csv; do
+    for csv_file in "$csv_dir"Table*.csv; do
         base_name=$(basename "$csv_file" .csv)
         table_id=$(basename "$csv_file" .csv | grep -oP '(?<=Table_ID_)[^\.]+' | tr '[:upper:]' '[:lower:]')
 

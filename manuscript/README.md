@@ -8,7 +8,8 @@ python3.12 -m venv env-3.12 && \
 ```
 
 
-./manuscript.tex
+./main/manuscript.tex
+./main/diff.tex
 ./src/introduction.tex
 ./src/methods.tex
 ./src/results.tex
