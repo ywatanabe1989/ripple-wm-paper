@@ -145,7 +145,7 @@ Hippocampal Neural Fluctuations Between Memory Encoding and Retrieval States Dur
 
 \cortext[cor1]{Corresponding author. Tel: +81-6-6879-3652 Email: ywatanabe@alumni.u-tokyo.ac.jp}
 %%Graphical abstract
-%\pdfbookmark[1]{Graphical Abstract}{graphicalabstract}
+%\pdfbookmark[1]{Graphical Abstract}{graphicalabstract}        
 %\begin{graphicalabstract}
 %\includegraphics{grabs}
 %\end{graphicalabstract}
@@ -154,7 +154,7 @@ Hippocampal Neural Fluctuations Between Memory Encoding and Retrieval States Dur
 Working memory (WM) is crucial for a multitude of cognitive functions, but its underlying neural mechanisms at play remain to be fully understood. Interestingly, the hippocampus and sharp-wave ripples (SWRs)--- transient and synchronous oscillation observed in the hippocampus --- garner recognition for their significance in memory consolidation and retrieval, albeit their correlation with WM tasks remains to be elucidated. Here we show that during a WM task, multi-unit activity patterns in the hippocampus display distinctive dynamics, especially during SWR periods. This study analyzed intracranial electroencephalography data from the medial temporal lobe (MTL) of nine patients with epilepsy, recorded during an eight-second Sternberg task. Utilizing Gaussian-process factor analysis, we extracted low-dimensional neural representations or trajectories (NT) within MTL regions during the Sternberg WM task. The results revealed significant variations in NT of the hippocampus compared to those of the entorhinal cortex and the amygdala. Additionally, the distance of the NT between the encoding and retrieval phases was dependent on memory load. Crucially, hippocampal NT oscillated during the retrieval phase between encoding and retrieval states in a task-dependent manner. Notably, these fluctuations shifted from encoding to retrieval states during SWR episodes. These findings reaffirm the role of the hippocampus in WM tasks and propose a hypothesis: the hippocampus transitions its functional state from encoding to retrieval during SWRs in WM tasks.
 \end{abstract}
 
-% \pdfbookmark[1]{Keywords}{keywords}
+% \pdfbookmark[1]{Keywords}{keywords}                
 \begin{keyword}
 working memory \sep memory load \sep hippocampus \sep sharp-wave ripples \sep humans
 \end{keyword}
@@ -389,14 +389,6 @@ x_{GM} = \arg\min_{z \in \mathbb{R}^d} \sum_{i=1}^n \|z - x_i\|_2.
 %% $x_{GM} = \arg\min_{z \in \mathbb{R}^d} \sum_{i=1}^n \|z - x_i\|_2$.
 %% \\
 \indent
-%% \subsection{Topological Data Analysis}
-%% Geometric medians were considered as the centroid of each class of samples. From these centroids, radii were incrementally increased, and the number of "holes" was counted in response to the radius. This process generates barcode plots to evaluate the stability of each state and persistent homology.
-%% \\
-\indent
-\subsection{Classification of NT Phases Using a Linear SVM Classifier}
-A linear support vector machine classifier was applied to NT data from each session to classify the four phases of the task: Fixation, Encoding, Maintenance, and Retrieval, in a supervised manner. Evaluation was conducted using the three-fold cross-validation method. The classification tasks were also conducted under specific conditions---set size (4, 6, or 8) and task type (Match IN and Mismatch OUT)---as well as an entire session with 50 trials.
-\\
-\indent
 \subsection{Identifying SWR candidates from hippocampal regions}
 Potential SWR events within the hippocampus were detected using a widely used method \cite{liu_consensus_2022}. LFP signals from a region of interest (ROI) like AHL, were re-referenced by deducting the averaged signal from locations outside the ROI (for instance, AHR, PHL, PHR, ECL, ECR, AL, and AR). The re-referenced LFP signals were then filtered with a ripple-band filter (80--140 Hz) to determine SWR candidates, marked as $\textrm{SWR}^+$ candidates. SWR detection was carried out using a published tool (\url{https://github.com/Eden-Kramer-Lab/ripple_detection}) \cite{kay_hippocampal_2016}, with the bandpass range adjusted to 80--140 Hz for humans \cite{norman_hippocampal_2019, norman_hippocampal_2021, liu_consensus_2022}, unlike the original 150--250 Hz range typically applied to rodents \cite{foster_reverse_2006, karlsson_awake_2009, carr_hippocampal_2011, pfeiffer_hippocampal_2013, jadhav_awake_2012, singer_hippocampal_2013, buzsaki_hippocampal_2015, wu_hippocampal_2017, fernandez-ruiz_long-duration_2019}.
 \\
@@ -409,6 +401,16 @@ Potential SWRs were differentiated from SWR candidates in putative CA1 (cornu Am
 \\
 \indent
 $\textrm{SWR}^+/\textrm{SWR}^-$ candidates in these predetermined CA1 regions were categorized as $\textrm{SWR}^+/\textrm{SWR}^-$, and thus they no longer retained their candidate status. The duration and ripple band peak amplitude of SWRs were found to follow log-normal distributions. Each time period of SWR was partitioned relative to the time from the SWR center into pre- (at $-800$ ms to $-300$ ms from the SWR center), mid- (at $-250$ to $+250$ ms), and post-SWR (at $+300$ to $+800$ ms) times.
+\\
+\indent
+\subsection{Classification of NT Phases Using Linear SVM Classifier in Putative CA1 Regions}
+Classification was conducted using a linear support vector machine classifier from the scikit-learn package (\cite{10.5555/1953048.2078195}) for two conditions: (i) Fixation vs. Encoding vs. Maintenance vs. Retrieval and (ii) Encoding vs. Retrieval phases. Evaluation was performed using 10-fold cross-validation with 100 repetitions. A dummy classifier was employed as a control. Trained weights and biases were utilized to visualize decision boundaries.
+\indent
+\\
+\indent
+\subsection{NT Distance from Geometric Medians for Phases}
+Euclidean distances of NT during Encoding/Retrieval phases from the geometric medians of $g_{E}$/$g_{R}$ were calculated. These distances were then transformed into ranks within each session for normalization.
+\indent
 \\
 \indent
 \subsection{Statistical Evaluation}
@@ -428,20 +430,6 @@ Figure~\ref{fig:02}A exhibits a distribution of median NTs, comprising 50 trials
 \indent
 Similarly, we computed the distances between the geometric medians of four phases, namely $\mathrm{\lVert g_{F}g_{E} \rVert}$, $\mathrm{\lVert g_{F}g_{M} \rVert}$, $\mathrm{\lVert g_{F}g_{R} \rVert}$, $\mathrm{\lVert g_{E}g_{M} \rVert}$, $\mathrm{\lVert g_{E}g_{R} \rVert}$, and $\mathrm{\lVert g_{M}g_{R} \rVert}$. The hippocampus showed larger distances between phases than those in the EC and amygdala. \footnote{Hippocampus: Distance = 0.60 [0.70], median [IQR], \textit{n} = 8,772 combinations; EC: Distance = 0.28 [0.52], median [IQR], \textit{n} = 5,017 combinations (\textit{p} $<$ 0.01; Brunner--Munzel test); Amygdala: Distance = 0.24 [0.42], median [IQR], \textit{n} = 7,466 combinations (\textit{p} $<$ 0.01; Brunner--Munzel test).}
 
-
-\subsection{The Existance of Memory States in NT}
-Here, we examined whether NT representations linearly depict memory states across the four phases. To achieve this, we utilized two methodologies: topological data analysis (TDA) and machine learning classification.
-\\
-\indent
-First, geometric medians were treated as centroids for phases and the number of holes were calculated using the TDA.
-\\
-\indent
-Second,
-\\
-\indent
-Together, these results provide compelling evidence for the existence of memory states in NT, as revealed by both TDA and ML classification.
-
-
 \subsection{Memory-Load-Dependent NT Distance between Encoding and Retrieval States in the Hippocampus}
 Regarding memory load in the Sternberg task, we observed a negative correlation between the correct rate of trials and the set size, which denotes the number of letters to be encoded (Figure~\ref{fig:03}A).\footnote{Correct rate: set size four (0.99 \textpm 0.11, mean \textpm SD; \textit{n} = 333 trials) vs. set size six (0.93 \textpm 0.26; \textit{n} = 278 trials; \textit{p} $<$ 0.001, Brunner--Munzel test with Bonferroni correction) and set size eight (0.87 \textpm 0.34; \textit{n} = 275 trials; \textit{p} $<$ 0.05; Brunner--Munzel test with Bonferroni correction). Generally, \textit{p} $<$ 0.001 for Kruskal--Wallis test; correlation coefficient = - 0.20, \textit{p} $<$ 0.001.} Concomitantly, a positive correlation was noted between the response time and set size (Figure~\ref{fig:03}B).\footnote{Response time: set size four (1.26 \textpm 0.45 s; \textit{n} = 333 trials) vs. set size six (1.53 \textpm 0.91 s; \textit{n} = 278 trials) and set size eight (1.66 \textpm 0.80 s; \textit{n} = 275 trials). All comparisons \textit{p} $<$ 0.001, Brunner--Munzel test with Bonferroni correction; \textit{p} $<$ 0.001 for Kruskal--Wallis test; correlation coefficient = 0.22, \textit{p} $<$ 0.001}.
 \\
@@ -453,6 +441,30 @@ The precise localization of recording electrodes within the hippocampus presents
 \\
 \indent
 Subsequently, SWR$^+$/SWR$^-$ candidates within these putative CA1 regions were labeled as SWR$^+$ and SWR$^-$, respectively\footnote{These definitions produced equal counts for both categories: SWR$^+$ (\textit{n} = 1,170) and SWR$^-$ (\textit{n} = 1,170).} (Table~\ref{tab:03}). Both SWR$^+$ and SWR$^-$ manifested identical durations \footnote{These definitions result in equal durations for both categories: SWR$^+$ (93.0 [65.4] ms) and SWR$^-$ (93.0 [65.4] ms).} due to their definitions and followed a log-normal distribution (Figure~\ref{fig:04}C). During the initial 400 ms of the retrieval phase, an increase in SWR$^+$ incidence was found\footnote{SWR$^+$ increased against the bootstrap sample; 95th percentile = 0.42 [Hz]; \textit{p} $<$ 0.05.} (Figure~\ref{fig:04}D). The peak ripple band amplitude of SWR$^+$ surpassed that of SWR$^-$ and followed a log-normal distribution (Figure~\ref{fig:04}E).\footnote{SWR$^+$ (3.05 [0.85] SD of baseline, median [IQR]; \textit{n} = 1,170) vs. SWR$^-$ (2.37 [0.33] SD of baseline, median [IQR]; \textit{n} = 1,170; \textit{p} $<$ 0.001; Brunner--Munzel test).}.
+
+%% \subsection{The Existence of Memory States in NT}
+%% Here, we examined whether states of phases are represented in NTs. To achieve this, we utilized two methodologies: machine learning classification and statistical tests on rank-transformed distance data.
+%% \\
+%% \indent
+%% First, a linear support vector machine classified the NT in a supervised manner for labels of the four phases, achieving significant classification results (Table~\ref{tab:SVC}). Moreover, geometric medians were correctly classified into their respective classes (Figure~\ref{fig:SVC}).
+%% \\
+%% \indent
+%% Second, in regard to the encoding and retrieval phases, the distance from g{E} and g{R} were calculated. The statistical test, for ranked data in the pairwise manner, showed significant results, indicating NT durign Encoding and Retrieval are closer to gE and gR, respectively.
+%% \\
+%% \indent
+%% Together, these results provide evidence for the existence of memory states in NT of Putative CA1 regions.
+%% /mnt/nas/ylab/ripple-wm-code/data/CA1/clf
+\subsection{Existence of Memory States in NT of Putative CA1 Regions}
+We examined whether phase states are represented in NTs using two methodologies: machine learning classification and statistical tests on rank-transformed distance data.
+\\
+\indent
+First, a linear support vector machine classified the NT during the four phases in a supervised manner (Table~\ref{tab:SVC}). Balanced accuracy of Fixation vs. Encoding vs. Maintenance vs. Retrieval classification task was XXX while that of Encoding vs. Retrieval task was XXX +/- XXX. These results were significantaly higher than those acuired using a dammy classifier. The classification metrics showed correlations between set size. Additionally, geometric medians were correctly classified as their respective classes (Figure~\ref{fig:SVC}).
+\\
+\indent
+Second, regarding the encoding and retrieval phases, distances of NTs from $g_{E}$ and $g_{R}$ were calculated and converted as rank within each session. Wilcoxon statistical tests revealed that XXX, indicating NT during Encoding and Retrieval are closer to $g_{E}$ and $g_{R}$, respectively (Figure~\ref{fig:dist_wilcoxon}).
+\\
+\indent
+To summarize, these results provide evidence for the existence of memory states in NT of putative CA1 regions.
 
 \subsection{Transient Change in Hippocampal NT during SWR}
 We assessed the 'distance' of the NT from the origin ($O$) during SWR events in both encoding and retrieval phases (Figure~\ref{fig:05}A). Observing the increase in distance during SWR, as illustrated in Figure~\ref{fig:05}A, we categorized each SWR into three stages: pre-, mid-, and post-SWR. Hence, the distances from the origin $O$ during those SWR intervals are identified as $\mathrm{\lVert \text{pre-eSWR}^+ \rVert}$, $\mathrm{\lVert \text{mid-eSWR}^+ \rVert}$ and others.
@@ -478,6 +490,7 @@ $\overrightarrow{\mathrm{rSWR^-}} \cdot \overrightarrow{\mathrm{g_{E}g_{R}}}$ ex
 \indent
 Furthermore, $\overrightarrow{\mathrm{eSWR^+}} \cdot \overrightarrow{\mathrm{rSWR^+}}$ was less than $\overrightarrow{\mathrm{eSWR^-}} \cdot \overrightarrow{\mathrm{rSWR^-}}$ strictly in Mismatch OUT task (Figure~\ref{fig:07}F: \textit{pink circles}). In other words, eSWR and rSWR pointed in the opposite direction exclusively in Mismatch OUT task but not Match IN task (Figure~\ref{fig:07}E: \textit{pink circles}).
 \label{sec:results}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% DISCUSSION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -503,7 +516,7 @@ In conclusion, this study illustrates that during a WM task in humans, hippocamp
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pdfbookmark[1]{Data Availability Statement}{data_availability}
 
-% \pdfbookmark[2]{Data and code availability}{data_and_code_availability}
+% \pdfbookmark[2]{Data and code availability}{data_and_code_availability}                    
 \section*{Data Availability Statement}
 The data is available on G-Node (https://doi. gin.g-node.org/10.12751/g-node.d76994/). The source code is available on GitHub (https://github.com/yanagisawa-lab/ hippocampal-neural-fluctuations-during-a-WM-task-in-humans).
 \label{data and code availability}
@@ -527,7 +540,7 @@ The data is available on G-Node (https://doi. gin.g-node.org/10.12751/g-node.d76
 % \bibliographystyle{plainnat}
 % use \citet{}
 
-% Numbering Style (not-sorted)
+% Numbering Style (not-sorted) 
 % \bibliographystyle{plainnat}
 % use \cite{}
 
@@ -538,27 +551,27 @@ The data is available on G-Node (https://doi. gin.g-node.org/10.12751/g-node.d76
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pdfbookmark[1]{Additional Information}{additional_information}
 
-\pdfbookmark[2]{Ethics Declarations}{ethics_declarations}
+\pdfbookmark[2]{Ethics Declarations}{ethics_declarations}                    
 \section*{Ethics Declarations}
-All study participants provided their written informed consent, subsequent to the approval from the pertinent institutional ethics review board (Kantonale Ethikkommission Zürich, PB 2016–02055).
+All study participants provided their written informed consent, subsequent to the approval from the pertinent institutional ethics review board (Kantonale Ethikkommission Zürich, PB 2016–02055).  
 \label{ethics declarations}
 
-\pdfbookmark[2]{Contributors}{author_contributions}
+\pdfbookmark[2]{Contributors}{author_contributions}                    
 \section*{Author Contributions}
 Y.W. and T.Y. conceptualized the study; Y.W. performed the data analysis; Y.W. and T.Y. wrote the original draft; and all authors reviewed the final manuscript.
 \label{author contributions}
 
-\pdfbookmark[2]{Acknowledgments}{acknowledgments}
+\pdfbookmark[2]{Acknowledgments}{acknowledgments}                    
 \section*{Acknowledgments}
 This research was funded by a grant from the Exploratory Research for Advanced Technology (JPMJER1801).
 \label{acknowledgments}
 
-\pdfbookmark[2]{Declaration of Interests}{declaration_of_interest}
+\pdfbookmark[2]{Declaration of Interests}{declaration_of_interest}                    
 \section*{Declaration of Interests}
 The authors declare that they have no competing interests.
 \label{declaration of interests}
 
-\pdfbookmark[2]{Inclusion and Diversity Statement}{inclusion_and_diversity_statement}
+\pdfbookmark[2]{Inclusion and Diversity Statement}{inclusion_and_diversity_statement}        
 \section*{Inclusion and Diversity Statement}
 We support inclusive, diverse, and equitable conduct of research.
 \label{inclusion and diversity statement}
@@ -568,7 +581,7 @@ We support inclusive, diverse, and equitable conduct of research.
 The authors employed ChatGPT, provided by OpenAI, for enhancing the manuscript's English language quality. After incorporating the suggested improvements, the authors meticulously revised the content. Ultimate responsibility for the final content of this publication rests entirely with the authors.
 \label{declaration of generative ai in scientific writing}
 
-%% \pdfbookmark[2]{Appendices}{appendices}
+%% \pdfbookmark[2]{Appendices}{appendices}                    
 %% \appendix
 %% \section{}
 %% \label{}
@@ -586,21 +599,21 @@ The authors employed ChatGPT, provided by OpenAI, for enhancing the manuscript's
 \small
 \begin{tabular}{*{11}{c}}
 \toprule
-\textbf{\thead{Subject ID}} &\textbf{\thead{\# of sessions}} &\textbf{\thead{AHL}} &\textbf{\thead{AHR}} &\textbf{\thead{PHL}} &\textbf{\thead{PHR}} &\textbf{\thead{ECL}} &\textbf{\thead{ECR}} &\textbf{\thead{AL}} &\textbf{\thead{AR}} &\textbf{\thead{SOZ}} &\\
+\textbf{\thead{Subject ID}} &\textbf{\thead{\# of sessions}} &\textbf{\thead{AHL}} &\textbf{\thead{AHR}} &\textbf{\thead{PHL}} &\textbf{\thead{PHR}} &\textbf{\thead{ECL}} &\textbf{\thead{ECR}} &\textbf{\thead{AL}} &\textbf{\thead{AR}} &\textbf{\thead{SOZ}} &\\
 \midrule
-#1 & 4 & \checkmark & n.a. & \checkmark & \checkmark & \checkmark & n.a. & \checkmark & n.a. & AHR \& LR\\
+#1 & 4 & \checkmark & n.a. & \checkmark & \checkmark & \checkmark & n.a. & \checkmark & n.a. & AHR \& LR\\
 \rowcolor{lightgray}
-#2 & 7 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHR \& PHR\\
-#3 & 3 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & n.a. & AHL \& PHL\\
+#2 & 7 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHR \& PHR\\
+#3 & 3 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & n.a. & AHL \& PHL\\
 \rowcolor{lightgray}
-#4 & 2 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHL \& AHR \& PHL \& PHR\\
-#5 & 3 & \checkmark & n.a. & n.a. & \checkmark & n.a. & n.a. & \checkmark & n.a. & DRR\\
+#4 & 2 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHL \& AHR \& PHL \& PHR\\
+#5 & 3 & \checkmark & n.a. & n.a. & \checkmark & n.a. & n.a. & \checkmark & n.a. & DRR\\
 \rowcolor{lightgray}
-#6 & 6 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHL \& PHL \& ECL \& AL\\
-#7 & 4 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHR \& PHR\\
+#6 & 6 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHL \& PHL \& ECL \& AL\\
+#7 & 4 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & AHR \& PHR\\
 \rowcolor{lightgray}
-#8 & 5 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & ECR\\
-#9 & 2 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & ECR \& AR\\
+#8 & 5 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & ECR\\
+#9 & 2 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & ECR \& AR\\
 \bottomrule
 \end{tabular}
 \captionsetup{width=\textwidth}
@@ -621,21 +634,21 @@ This figure denotes the placements of electrodes and seizure onset zones. Region
 \small
 \begin{tabular}{*{5}{c}}
 \toprule
-\textbf{\thead{Subject}} &\textbf{\thead{AHL}} &\textbf{\thead{AHR}} &\textbf{\thead{PHL}} &\textbf{\thead{PHR}} &\\
+\textbf{\thead{Subject}} &\textbf{\thead{AHL}} &\textbf{\thead{AHR}} &\textbf{\thead{PHL}} &\textbf{\thead{PHR}} &\\
 \midrule
-#1 & 0.60 ± 0.14 & n.a. & n.a. & 0.1 ± 0\\
+#1 & 0.60 ± 0.14 & n.a. & n.a. & 0.1 ± 0\\
 \rowcolor{lightgray}
-#2 & 0.21 ± 0.16 & 0.17 ± 0.21 & 0.18 ± 0.22 & 0.20 ± 0.15\\
-#3 & 0.40 ± 0.42 & 0.83 ± 0.12 & n.a. & n.a.\\
+#2 & 0.21 ± 0.16 & 0.17 ± 0.21 & 0.18 ± 0.22 & 0.20 ± 0.15\\
+#3 & 0.40 ± 0.42 & 0.83 ± 0.12 & n.a. & n.a.\\
 \rowcolor{lightgray}
-#4 & 0.10 ± 0.00 & 0.10 ± 0.00 & 0.90 ± 0.00 & 0.10 ± 0.14\\
-#5 & n.a. & n.a. & n.a. & n.a.\\
+#4 & 0.10 ± 0.00 & 0.10 ± 0.00 & 0.90 ± 0.00 & 0.10 ± 0.14\\
+#5 & n.a. & n.a. & n.a. & n.a.\\
 \rowcolor{lightgray}
-#6 & 0.63 ± 0.06 & n.a. & n.a. & 0.27 ± 0.06\\
-#7 & 0.10 ± 0.00 & 0.35 ± 0.35 & 0.37 ± 0.47 & 0.10 ± 0.00\\
+#6 & 0.63 ± 0.06 & n.a. & n.a. & 0.27 ± 0.06\\
+#7 & 0.10 ± 0.00 & 0.35 ± 0.35 & 0.37 ± 0.47 & 0.10 ± 0.00\\
 \rowcolor{lightgray}
-#8 & 0.13 ± 0.10 & n.a. & 0.28 ± 0.49 & n.a.\\
-#9 & n.a. & 0.85 ± 0.07 & 0.15 ± 0.07 & n.a.\\
+#8 & 0.13 ± 0.10 & n.a. & 0.28 ± 0.49 & n.a.\\
+#9 & n.a. & 0.85 ± 0.07 & 0.15 ± 0.07 & n.a.\\
 \bottomrule
 \end{tabular}
 \captionsetup{width=\textwidth}
@@ -653,17 +666,17 @@ The silhouette scores (mean \textpm SD across sessions per subject) for UMAP clu
 \small
 \begin{tabular}{*{6}{c}}
 \toprule
-\textbf{\thead{Subject ID}} &\textbf{\thead{\# of sessions}} &\textbf{\thead{\# of trials}} &\textbf{\thead{ROI}} &\textbf{\thead{\# of SWRs}} &\textbf{\thead{SWR incidence [Hz]}} &\\
+\textbf{\thead{Subject ID}} &\textbf{\thead{\# of sessions}} &\textbf{\thead{\# of trials}} &\textbf{\thead{ROI}} &\textbf{\thead{\# of SWRs}} &\textbf{\thead{SWR incidence [Hz]}} &\\
 \midrule
-\#1 & 2 & 100 & AHL & 274 & 0.34\\
+\#1 & 2 & 100 & AHL & 274 & 0.34\\
 \rowcolor{lightgray}
-\#3 & 2 & 97 & AHR & 325 & 0.42\\
-\#4 & 2 & 99 & PHL & 202 & 0.26\\
+\#3 & 2 & 97 & AHR & 325 & 0.42\\
+\#4 & 2 & 99 & PHL & 202 & 0.26\\
 \rowcolor{lightgray}
-\#6 & 2 & 100 & AHL & 297 & 0.37\\
-\#9 & 2 & 97 & AHR & 72 & 0.09\\
+\#6 & 2 & 100 & AHL & 297 & 0.37\\
+\#9 & 2 & 97 & AHR & 72 & 0.09\\
 \rowcolor{lightgray}
-\ &  Total = 10 & Total = 493 & \ & Total = 1170 & 0.30 ± 0.13 (mean ± SD)\\
+\ &  Total = 10 & Total = 493 & \ & Total = 1170 & 0.30 ± 0.13 (mean ± SD)\\
 \bottomrule
 \end{tabular}
 \captionsetup{width=\textwidth}
@@ -731,7 +744,7 @@ SVC classification of NT states revealed linear distinguishability, confirming t
         \begin{figure*}[ht]
             \pdfbookmark[2]{ID 01}{figure_id_01}
         	\centering
-%            \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_01.png}
+            \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_01.png}
         	\caption{\textbf{
 Local Field Potentials, Multiunit Activity, and Neural Trajectories in the Hippocampus During a Modified Sternberg Task
 }
@@ -746,7 +759,7 @@ Local Field Potentials, Multiunit Activity, and Neural Trajectories in the Hippo
         \begin{figure*}[ht]
             \pdfbookmark[2]{ID 02}{figure_id_02}
         	\centering
-%            \includegraphics[width=0.5\textwidth]{./src/figures/png/Figure_ID_02.png}
+            \includegraphics[width=0.5\textwidth]{./src/figures/png/Figure_ID_02.png}
         	\caption{\textbf{
 State-Dependent Neural Trajectory of Hippocampal Neurons
 }
@@ -761,7 +774,7 @@ State-Dependent Neural Trajectory of Hippocampal Neurons
         \begin{figure*}[ht]
             \pdfbookmark[2]{ID 03}{figure_id_03}
         	\centering
-%            \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_03.png}
+            \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_03.png}
         	\caption{\textbf{
 Positive Correlation between Memory Load and Neural Trajectory Distance in the Hippocampus between Encoding and Retrieval Phases
 }
@@ -776,7 +789,7 @@ Positive Correlation between Memory Load and Neural Trajectory Distance in the H
         \begin{figure*}[ht]
             \pdfbookmark[2]{ID 04}{figure_id_04}
         	\centering
-%            \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_04.png}
+            \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_04.png}
         	\caption{\textbf{Detection of SWRs in Putative CA1 Regions}\\
 \textbf{\textit{A.}} Two-dimensional UMAP \cite{mcinnes_umap_2018} projection displays multi-unit spikes during SWR$^+$ candidates (\textit{purple}) and SWR$^-$ candidates (\textit{yellow}). \textbf{\textit{B.}} A cumulative density plot indicates silhouette scores, reflecting UMAP clustering quality (see Table~\ref{tab:02}). Hippocampal regions with silhouette scores exceeding 0.60 (equivalent to the $75^{th}$ percentile) are identified as putative CA1 regions. SWR$^+$ and SWR$^-$ candidates, which were recorded from these regions, are classified as SWR$^+$ and SWR$^-$ respectively (\textit{n}s = 1,170). \textbf{\textit{C.}} Identical distributions of SWR$^+$ (\textit{purple}) and SWR$^-$ (\textit{yellow}) distributions, based on their definitions (93.0 [65.4] ms, median [IQR]). Note that these distributions exhibit log-normality. \textbf{\textit{D.}} Identical SWR incidence for both SWR$^+$ (\textit{purple}) and SWR$^-$ (\textit{yellow}), relative to the probe's timing (mean \textpm 95\% confidence interval). However, 95\% confidence interval may not be visibly apparent due to their narrow ranges. Note that a significant SWR incidence increase was detected during the initial 400 ms of the retrieval phase (0.421 [Hz], *\textit{p} $<$ 0.05, bootstrap test). \textbf{\textit{E.}} Distributions of ripple band peak amplitudes for SWR$^-$ (\textit{yellow}; 2.37 [0.33] SD of baseline, median [IQR]) and SWR$^+$ (\textit{purple}; 3.05 [0.85] SD of baseline, median [IQR]) are manifested (***\textit{p} $<$ 0.001, the Brunner--Munzel test). Note the log-normality for SWR$^+$ events.}
 % width=1\textwidth
@@ -786,7 +799,7 @@ Positive Correlation between Memory Load and Neural Trajectory Distance in the H
         \begin{figure*}[ht]
             \pdfbookmark[2]{ID 05}{figure_id_05}
         	\centering
-%            \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_05.png}
+            \includegraphics[width=1\textwidth]{./src/figures/png/Figure_ID_05.png}
         	\caption{\textbf{Transient Change in Neural Trajectory during SWR}
 \smallskip
 \\
@@ -798,7 +811,7 @@ Positive Correlation between Memory Load and Neural Trajectory Distance in the H
         \begin{figure*}[ht]
             \pdfbookmark[2]{ID 07}{figure_id_07}
         	\centering
-%            \includegraphics[width=0.5\textwidth]{./src/figures/png/Figure_ID_07.png}
+            \includegraphics[width=0.5\textwidth]{./src/figures/png/Figure_ID_07.png}
         	\caption{\textbf{
 Direction of Neural Trajectory During SWR Based on Encoding and Retrieval States
 }

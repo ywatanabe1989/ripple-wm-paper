@@ -18,16 +18,12 @@
 #     pdflatex -interaction=nonstopmode "$filename.tex"
 # }
 
+
 -my-pdflatex-countwords() {
     filename=$1
     local n_words=$(texcount "$filename.tex" -inc -1 -sum | grep -oE '[0-9]+' | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta')
     sed -i "s/([0-9,]* words)/($n_words words)/" "$filename.tex"
 }
-# -my-pdflatex-countwords() {
-#     filename=$1
-#     local n_words=$(texcount "$filename.tex" -inc -1 -sum | grep -oE '[0-9]+' | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta')
-#     sed -i "s/([0-9,]* words)/($n_words words)/" "$filename.tex"
-# }
 
 -my-pdflatex-cleanup() {
     filename=$1
@@ -45,7 +41,7 @@
 
     cd "$dir"
 
-    -my-pdflatex-countwords $filename
+    -my-pdflatex-countwords $filename 2>&1 > /dev/null
     -my-pdflatex-compile $filename
     -my-pdflatex-cleanup $filename
     # if [[ -e "compile.sh" ]]; then

@@ -1,0 +1,64 @@
+{
+  \color{revision_color}
+  \revEditor{}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  Lines XX--XX\\
+
+  \subsection{\DIFadd{Defining Phase States}}
+  \DIFadd{Phase states were defined as the neural trajectory (NT) during each phase of the 8-s task, comprising 160 x 50-ms bins:
+  }
+
+  \begin{equation}
+    \DIFadd{S_F = \{N_{i} | i = 1, ..., 20\}
+  }\end{equation}
+
+  \begin{equation}
+    \DIFadd{S_E = \{N_{i} | i = 21, ..., 60\}
+  }\end{equation}
+
+  \begin{equation}
+    \DIFadd{S_M = \{N_{i} | i = 61, ..., 120\}
+  }\end{equation}
+
+  \begin{equation}
+    \DIFadd{S_R = \{N_{i} | i = 121, ..., 160\}
+  }\end{equation}
+
+  \DIFadd{where $S_F$, $S_E$, $S_M$, and $S_R$ represent the states of fixation, encoding, maintenance, and retrieval, respectively; $N_{i}$ is the $i^{th}$ NT coordinate.
+  }
+
+  \subsection{\DIFadd{Geometric Medians of States}}
+  \DIFadd{The geometric median was calculated from the middle 1 s (20 x 50-ms bins) of each state:
+  }
+
+  \begin{equation}
+    \DIFadd{g_F = f_{GM}(\{N_{i} | i = 1, ..., 20\})
+  }\end{equation}
+
+  \begin{equation}
+    \DIFadd{g_E = f_{GM}(\{N_{i} | i = 31, ..., 50\})
+  }\end{equation}
+
+  \begin{equation}
+    \DIFadd{g_M = f_{GM}(\{N_{i} | i = 81, ..., 100\})
+  }\end{equation}
+
+  \begin{equation}
+    \DIFadd{g_R = f_{GM}(\{N_{i} | i = 131, ..., 150\})
+  }\end{equation}
+
+  \DIFadd{where $g_{F}$, $g_{E}$, $g_{M}$, and $g_{R}$ are geometric medians }\DIFaddend for fixation, \DIFdelbegin \DIFdel{$\mathrm{g_{E}}$ for encoding, $\mathrm{g_{M}}$ for }\DIFdelend \DIFaddbegin \DIFadd{encoding, }\DIFaddend maintenance, and \DIFdelbegin \DIFdel{$\mathrm{g_{R}}$ for retrieval phase) were calculated by determining the median coordinates of the NT during }\DIFdelend \DIFaddbegin \DIFadd{retrieval phases, respectively; $f_{GM}$ is the function to calculate geometric median using the Python geom\_median package (}\url{https://github.com/krishnap25/geom_median?tab=readme-ov-file}\DIFadd{) \mbox{%DIFAUXCMD
+      \cite{pillutla:etal:rfa}}\hspace{0pt}%DIFAUXCMD
+    ; and $N_{i}$ is the $i^{th}$ NT coordinate, calculated from 50-ms unit activity data.
+  }
+
+  \DIFadd{The geometric median is calculated by minimizing the sum of distances to the sample points:
+  }
+
+  \begin{equation}
+    \DIFadd{x_{GM} = \arg\min_{z \in \mathbb{R}^d} \sum_{i=1}^n \|z - x_i\|_2.
+  }\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}

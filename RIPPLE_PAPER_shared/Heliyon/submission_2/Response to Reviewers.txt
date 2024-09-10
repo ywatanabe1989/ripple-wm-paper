@@ -1,0 +1,9 @@
+We sincerely apologize for the delay in responding. The lead author, Yusuke Watanabe, was transitioning to Australia, resulting in a temporary lack of internet access. Thank you for your understanding and for the chance to revise our manuscript.
+
+We would like to inform you that, to enhance the quality of our submission, we have transitioned from Microsoft Word to TeX for the manuscript's revision. While this may cause some minor formatting differences, we believe the overall improvement in quality justifies this change.
+
+The revised manuscript was uploaded "as Supplementary Material", along with source files: 'compiled.tex', 'bibliography.bib', and relevant figure files.
+
+Thank you for your patience and for the opportunity to improve our work.
+
+Best regards,

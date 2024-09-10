@@ -1,4 +1,4 @@
-#!.env/bin/python
+#!./.env/bin/python
 # -*- coding: utf-8 -*-
 # Time-stamp: "2024-01-13 16:01:47 (ywatanabe)"
 

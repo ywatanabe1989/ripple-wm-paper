@@ -170,14 +170,6 @@ x_{GM} = \arg\min_{z \in \mathbb{R}^d} \sum_{i=1}^n \|z - x_i\|_2.
 %% $x_{GM} = \arg\min_{z \in \mathbb{R}^d} \sum_{i=1}^n \|z - x_i\|_2$.
 %% \\
 \indent
-%% \subsection{Topological Data Analysis}
-%% Geometric medians were considered as the centroid of each class of samples. From these centroids, radii were incrementally increased, and the number of "holes" was counted in response to the radius. This process generates barcode plots to evaluate the stability of each state and persistent homology.
-%% \\
-\indent
-\subsection{Classification of NT Phases Using a Linear SVM Classifier}
-A linear support vector machine classifier was applied to NT data from each session to classify the four phases of the task: Fixation, Encoding, Maintenance, and Retrieval, in a supervised manner. Evaluation was conducted using the three-fold cross-validation method. The classification tasks were also conducted under specific conditions---set size (4, 6, or 8) and task type (Match IN and Mismatch OUT)---as well as an entire session with 50 trials.
-\\
-\indent
 \subsection{Identifying SWR candidates from hippocampal regions}
 Potential SWR events within the hippocampus were detected using a widely used method \cite{liu_consensus_2022}. LFP signals from a region of interest (ROI) like AHL, were re-referenced by deducting the averaged signal from locations outside the ROI (for instance, AHR, PHL, PHR, ECL, ECR, AL, and AR). The re-referenced LFP signals were then filtered with a ripple-band filter (80--140 Hz) to determine SWR candidates, marked as $\textrm{SWR}^+$ candidates. SWR detection was carried out using a published tool (\url{https://github.com/Eden-Kramer-Lab/ripple_detection}) \cite{kay_hippocampal_2016}, with the bandpass range adjusted to 80--140 Hz for humans \cite{norman_hippocampal_2019, norman_hippocampal_2021, liu_consensus_2022}, unlike the original 150--250 Hz range typically applied to rodents \cite{foster_reverse_2006, karlsson_awake_2009, carr_hippocampal_2011, pfeiffer_hippocampal_2013, jadhav_awake_2012, singer_hippocampal_2013, buzsaki_hippocampal_2015, wu_hippocampal_2017, fernandez-ruiz_long-duration_2019}.
 \\
@@ -190,6 +182,16 @@ Potential SWRs were differentiated from SWR candidates in putative CA1 (cornu Am
 \\
 \indent
 $\textrm{SWR}^+/\textrm{SWR}^-$ candidates in these predetermined CA1 regions were categorized as $\textrm{SWR}^+/\textrm{SWR}^-$, and thus they no longer retained their candidate status. The duration and ripple band peak amplitude of SWRs were found to follow log-normal distributions. Each time period of SWR was partitioned relative to the time from the SWR center into pre- (at $-800$ ms to $-300$ ms from the SWR center), mid- (at $-250$ to $+250$ ms), and post-SWR (at $+300$ to $+800$ ms) times.
+\\
+\indent
+\subsection{Classification of NT Phases Using Linear SVM Classifier in Putative CA1 Regions}
+Classification was conducted using a linear support vector machine classifier from the scikit-learn package (\cite{10.5555/1953048.2078195}) for two conditions: (i) Fixation vs. Encoding vs. Maintenance vs. Retrieval and (ii) Encoding vs. Retrieval phases. Evaluation was performed using 10-fold cross-validation with 100 repetitions. A dummy classifier was employed as a control. Trained weights and biases were utilized to visualize decision boundaries.
+\indent
+\\
+\indent
+\subsection{NT Distance from Geometric Medians for Phases}
+Euclidean distances of NT during Encoding/Retrieval phases from the geometric medians of $g_{E}$/$g_{R}$ were calculated. These distances were then transformed into ranks within each session for normalization.
+\indent
 \\
 \indent
 \subsection{Statistical Evaluation}
